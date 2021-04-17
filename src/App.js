@@ -5,22 +5,22 @@ import { Button } from "./components/button";
 import { Input } from "./components/input";
 // import colors from "./config/colors";
 
+import "./App.css";
+import { HeaderWidget } from "./widgets/header-widget";
+import { Footer } from "./widgets/footer";
+
 function App() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <div className='App'>Welcome TO Events Confirmation | Happy Hacking</div>
-      <form style={styles.form}>
-        <Input placeholder='Username' icon={<FaUserAlt />} />
-        <Input placeholder='Email' icon={<FaEnvelope />} />
-        <Button text='SignUp' />
-      </form>
+    <div>
+      <div className='App'>
+        <HeaderWidget />
+        <Footer />
+      </div>
+      {/* <form style={styles.form}>
+				<Input placeholder="Username" icon={<FaUserAlt />} />
+				<Input placeholder="Email" icon={<FaEnvelope />} />
+				<Button text="SignUp" />
+			</form> */}
     </div>
   );
 }

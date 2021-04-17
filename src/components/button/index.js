@@ -1,11 +1,15 @@
 /** @format */
 
 import React from "react";
-import "./button.css";
 
-const Button = ({ type, style, text, handleClick, ...props }) => {
+const Button = ({ type, className, style, text, handleClick, ...props }) => {
   return (
-    <button type={type} className='btn' style={style} onClick={handleClick}>
+    <button
+      type={type}
+      className={className}
+      style={style}
+      onClick={handleClick}
+    >
       {text}
     </button>
   );

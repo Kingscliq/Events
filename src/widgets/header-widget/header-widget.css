@@ -1,0 +1,39 @@
+.main-header-widget {
+	background: #da564a;
+}
+
+.main-header-widget .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 1rem 0;
+	line-height: 47px;
+	align-items: center;
+	color: #ffffff;
+}
+
+.hire-text,
+.hire-btn {
+	font-family: "Google Sans", sans-serif;
+}
+
+.hire-text p:nth-child(1) {
+	font-size: 40px;
+}
+
+.hire-btn {
+	width: 210px;
+}
+
+.hire-btn .btn-click {
+	color: var(--dark);
+	background: var(--light);
+}
+
+@media screen and (max-width: 400px) {
+	.main-header-widget .container {
+		line-height: 40px;
+		padding: 1rem;
+		justify-content: center;
+	}
+}
