@@ -1,10 +1,8 @@
 /** @format */
 
 import React from "react";
-import colors from "../../config/colors";
-import { FaUserAlt } from "react-icons/fa";
 import "./input.css";
-const Input = ({ type, placeholder, style, icon, handleChange }) => {
+const Input = ({ type, placeholder, style, icon, handleChange, ...props }) => {
   return (
     <div className='input' style={style}>
       <span className='icon'>{icon}</span>

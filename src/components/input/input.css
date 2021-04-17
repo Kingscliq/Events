@@ -1,12 +1,6 @@
 /** @format */
 
 .input {
-}
-.textField {
-  border-radius: 25px;
-}
-
-.input {
   border: 1px solid #161616;
   width: 100%;
   padding: 20px;

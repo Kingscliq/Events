@@ -3,7 +3,7 @@
 import { FaEnvelope, FaUserAlt } from "react-icons/fa";
 import { Button } from "./components/button";
 import { Input } from "./components/input";
-import colors from "./config/colors";
+// import colors from "./config/colors";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ const styles = {
   form: {
     width: "500px",
     padding: "20px",
-    backgroundColor: colors.dark,
+    backgroundColor: "#333",
     height: "600px",
   },
 };
