@@ -1,5 +1,14 @@
 /** @format */
-
+/* Utility Colors */
+:root {
+  --primary: #f17140;
+  --secondary: #da564a;
+  --tertiary: #a65a54;
+  --dark: #0b0d17;
+  --light: #f9f9f9;
+  --grey: #161616;
+  --darkgrey: #21212152;
+}
 * {
   margin: 0;
   padding: 0;
