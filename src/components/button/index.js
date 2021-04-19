@@ -2,26 +2,15 @@
 
 import React from "react";
 import colors from "../../config/colors";
+import "./button.css";
 
 const Button = ({ type, style, text, handleClick, ...props }) => {
   return (
-    <button type={type} style={styles.btn} onClick={handleClick}>
+    <button type={type} className='btn' style={style} onClick={handleClick}>
       {text}
     </button>
   );
 };
 
-const styles = {
-  btn: {
-    backgroundColor: colors.primary,
-    width: "100%",
-    border: "none",
-    outline: "none",
-    borderRadius: "35px",
-    padding: "20px",
-    fontSize: "20px",
-    color: colors.light,
-    margin: "20px auto",
-  },
-};
+const styles = {};
 export { Button };
