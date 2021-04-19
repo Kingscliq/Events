@@ -1,3 +1,4 @@
-import logo from "./Vector.png";
+import FooterLogo from "./Vector.png";
+import NavLogo from "./Main-logo.png";
 
-export { logo };
+export { FooterLogo, NavLogo };

@@ -1,0 +1,31 @@
+.main-header-widget {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 5px 3rem;
+	background: #da564a;
+	line-height: 47px;
+	align-items: center;
+	color: #ffffff;
+}
+
+.hire-text,
+.hire-btn {
+	font-family: "Google Sans", sans-serif;
+}
+
+.hire-text p:nth-child(1) {
+	font-size: 40px;
+}
+
+.hire-btn {
+	width: 210px;
+}
+
+@media screen and (max-width: 400px) {
+	.main-header-widget {
+		line-height: 35px;
+		padding: 1rem;
+		justify-content: center;
+	}
+}
