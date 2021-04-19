@@ -7,18 +7,14 @@ import colors from "./config/colors";
 
 import "./App.css";
 import { HeaderWidget } from "./widgets/header-widget";
+import { Footer } from "./components/footer";
 
 function App() {
 	return (
-		<div
-			style={{
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				flexDirection: "column",
-			}}>
+		<div>
 			<div className="App">
 				<HeaderWidget />
+				<Footer />
 			</div>
 			{/* <form style={styles.form}>
 				<Input placeholder="Username" icon={<FaUserAlt />} />

@@ -1,9 +1,12 @@
 .main-header-widget {
+	background: #da564a;
+}
+
+.main-header-widget .container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	padding: 5px 3rem;
-	background: #da564a;
+	padding: 1rem 0;
 	line-height: 47px;
 	align-items: center;
 	color: #ffffff;
@@ -22,9 +25,14 @@
 	width: 210px;
 }
 
+.hire-btn .btn-click {
+	color: var(--dark);
+	background: var(--light);
+}
+
 @media screen and (max-width: 400px) {
-	.main-header-widget {
-		line-height: 35px;
+	.main-header-widget .container {
+		line-height: 40px;
 		padding: 1rem;
 		justify-content: center;
 	}
