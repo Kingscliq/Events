@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { Button } from "../../../components/button";
 import "./login.css";
+import { SmilingLady } from "../../../assets/images";
 const Login = () => {
   const initialFormState = { email: "", password: "" };
 
@@ -21,8 +22,8 @@ const Login = () => {
   };
   return (
     <>
-      <section>
-        <div>
+      <section className="form-container">
+        <div className="form-parent">
           <Formik
             initialValues={initialFormState}
             onSubmit={(data) => {
@@ -73,8 +74,8 @@ const Login = () => {
             )}
           </Formik>
         </div>
-        <div>
-          <img src="" alt="" />
+        <div className="signup-hero-container">
+          <img src={SmilingLady} alt="smiling-lady" className="login-hero" />
         </div>
       </section>
     </>

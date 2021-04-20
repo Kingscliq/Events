@@ -3,3 +3,36 @@
   display: flex;
   align-items: center;
 }
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+}
+.form-parent {
+  display: flex;
+  place-items: center;
+  width: 500px;
+  margin: auto;
+}
+.signup-hero-container {
+  width: 600px;
+}
+
+.login-hero {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .login-hero {
+    display: none;
+  }
+  .form-parent {
+    display: flex;
+    place-items: center;
+    width: 100%;
+    margin: auto;
+  }
+  .form-container {
+    flex-direction: column;
+  }
+} ;
