@@ -2,16 +2,26 @@
 
 import React from "react";
 
-const Button = ({ type, className, style, text, handleClick, ...props }) => {
+const Button = ({
+  type,
+  className,
+  style,
+  text,
+  handleClick,
+  icon,
+  ...props
+}) => {
   return (
-    <button
-      type={type}
-      className={className}
-      style={style}
-      onClick={handleClick}
-    >
-      {text}
-    </button>
+    <div>
+      <button
+        type={type}
+        className={className}
+        style={style}
+        onClick={handleClick}
+      >
+        {icon} &nbsp;{text}
+      </button>
+    </div>
   );
 };
 

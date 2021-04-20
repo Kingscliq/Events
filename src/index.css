@@ -22,10 +22,21 @@
 
 body {
   font-family: "Google Sans", sans-serif;
+  background-color: var(--light);
 }
 .container {
   width: 90%;
   margin: auto;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-tertiary {
+  color: var(--tertiary);
 }
 
 /* Button styles */
@@ -37,36 +48,65 @@ body {
   border-radius: 35px;
   padding: 10px 16px;
   font-size: 20px;
-  /* margin: 20px auto; */
+  margin: 20px auto;
   transition: all 0.5s ease-in-out;
 }
 
-.btn:hover {
-  background-color: #ffffff;
-  color: #f0916c;
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--light);
+}
+.btn-light {
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(226, 81, 76, 0.15);
+  border-radius: 32px;
+}
+
+.btn-primary:hover {
+  background-color: #f0916c;
+  color: var(--light);
 }
 
 /* Input styles */
 .input {
-  border: 1px solid #161616;
+  border: 1px solid #888;
   width: 100%;
   padding: 20px;
   border-radius: 35px;
   background-color: var(--light);
   margin: 20px 0;
+  box-shadow: 0px 8px 16px rgba(226, 81, 76, 0.15);
 }
 .textField {
   border: none;
   outline: none;
   font-size: 20px;
   background-color: transparent;
+  width: 80%;
+}
+
+.textField:focus {
+  background-color: var(--light);
 }
 .icon {
   font-size: 20px;
   margin-right: 20px;
   color: var(--darkgrey);
 }
+.card {
+  width: 500px;
+  box-shadow: 0 1px 3px rgba (0, 0, 0, 0.12), 0 1px 2px rgba (0, 0, 0, 0.24);
+  height: auto;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+}
 
+/* // Form Styles */
+
+.form-header {
+  text-align: center;
+}
 @media screen and (max-width: 464px) {
   .container {
     width: 90%;
