@@ -30,10 +30,11 @@
 	background: var(--light);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
 	.main-header-widget .container {
 		line-height: 40px;
 		padding: 1rem;
 		justify-content: center;
+		text-align: center;
 	}
 }
