@@ -10,5 +10,24 @@ import EventChairs from "./event-chairs.png";
 import People from "./people.png";
 import SkySrapper from "./sky-scrapper.png";
 import SpeechLady from "./speech-lady.png";
+import LadyWithGlasses from "./lady-with-glasses.png";
+import Karioke4 from "./karoke-4.png";
+import Karioke5 from "./karioke-5.png";
 
-export { FooterLogo, NavLogo, SmilingLady, Karioke, Karioke1, Karioke2, Karioke3, HappyLadies, EventChairs, People, SkySrapper, SpeechLady };
+export {
+  FooterLogo,
+  NavLogo,
+  SmilingLady,
+  Karioke,
+  Karioke1,
+  Karioke2,
+  Karioke3,
+  Karioke4,
+  Karioke5,
+  HappyLadies,
+  EventChairs,
+  People,
+  SkySrapper,
+  SpeechLady,
+  LadyWithGlasses,
+};
