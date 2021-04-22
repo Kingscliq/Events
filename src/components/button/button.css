@@ -15,3 +15,18 @@
 	background-color: #ffffff;
 	color: #f0916c;
 }
+
+.btn-primary {
+	background-color: var(--primary);
+	color: var(--light);
+}
+.btn-light {
+	background: #ffffff;
+	box-shadow: 0px 8px 16px rgba(226, 81, 76, 0.15);
+	border-radius: 32px;
+}
+
+.btn-primary:hover {
+	background-color: #f0916c;
+	color: var(--light);
+}

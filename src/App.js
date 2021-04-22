@@ -1,14 +1,12 @@
 /** @format */
 
-// import { FaEnvelope, FaUserAlt } from "react-icons/fa";
-// import { Button } from "./components/button";
-// import colors from "./config/colors";
-
 import "./App.css";
 import { HeaderWidget } from "./widgets/header-widget";
 import { Footer } from "./widgets/footer";
-import { NavBar } from "./widgets/nav-bar";
+import { NavBar } from "./widgets/nav-bar/";
 import { Button } from "./components/button";
+import { Login } from "./pages/auth/login";
+import { SignUp } from "./pages/auth/signup";
 
 function App() {
 	return (
@@ -22,23 +20,12 @@ function App() {
 					button={<Button text={"Sign In"} className="btn" />}
 				/>
 				<HeaderWidget />
+				<Login />
+				<SignUp />
 				<Footer />
 			</div>
-			{/* <form style={styles.form}>
-				<Input placeholder="Username" icon={<FaUserAlt />} />
-				<Input placeholder="Email" icon={<FaEnvelope />} />
-				<Button text="SignUp" />
-			</form> */}
 		</div>
 	);
 }
 
-// const styles = {
-// 	form: {
-// 		width: "500px",
-// 		padding: "20px",
-// 		backgroundColor: "#333",
-// 		height: "600px",
-// 	},
-// };
 export default App;
