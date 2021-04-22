@@ -9,17 +9,16 @@ import { HeaderWidget } from "./widgets/header-widget";
 import { Footer } from "./widgets/footer";
 import { NavBar } from "./widgets/nav-bar";
 import { Button } from "./components/button";
-import { CgMenuGridO } from "react-icons/cg";
 
 function App() {
 	return (
 		<div>
 			<div className="App">
 				<NavBar
-					firstItemIcon={<CgMenuGridO />}
-					firstItem={"it worked"}
-					secondItem={"second me"}
-					profile={"profile"}
+					firstItem={"Home"}
+					secondItem={"Events"}
+					profileLink={`www.yahoo.com`}
+					profile={"Profile"}
 					button={<Button text={"Sign In"} className="btn" />}
 				/>
 				<HeaderWidget />
