@@ -11,6 +11,7 @@ import { NavBar } from "./widgets/nav-bar/";
 import { Button } from "./components/button";
 import { CgMenuGridO } from "react-icons/cg";
 import { Login } from "./pages/auth/login";
+import { SignUp } from "./pages/auth/signup";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           button={<Button text={"Sign In"} className="btn" />}
         />
         <HeaderWidget />
-        <Login />
+        {/* <Login /> */}
+        <SignUp />
         <Footer />
       </div>
     </div>

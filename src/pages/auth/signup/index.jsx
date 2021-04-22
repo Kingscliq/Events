@@ -10,7 +10,8 @@ import {
   FaGoogle,
 } from "react-icons/fa";
 import { Button } from "../../../components/button";
-import "./login.css";
+import "../login/login.css";
+import { EventChairs } from "../../../assets/images";
 const SignUp = () => {
   const initialFormState = { email: "", password: "" };
 
@@ -21,8 +22,8 @@ const SignUp = () => {
   };
   return (
     <>
-      <section>
-        <div>
+      <section className="form-container">
+        <div className="form-parent">
           <Formik
             initialValues={initialFormState}
             onSubmit={(data) => {
@@ -43,7 +44,7 @@ const SignUp = () => {
                     type="text"
                     className="textField"
                     icon={<FaUserAlt />}
-                    placeholder="Enter Email"
+                    placeholder="Enter Username"
                   />
                   <Input
                     type="text"
@@ -81,7 +82,7 @@ const SignUp = () => {
           </Formik>
         </div>
         <div>
-          <img src="" alt="" />
+          <img src={EventChairs} className="login-hero" />
         </div>
       </section>
     </>
