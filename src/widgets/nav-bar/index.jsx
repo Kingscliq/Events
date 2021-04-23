@@ -29,6 +29,8 @@ const NavBar = ({
 		color: "#0b0d17",
 		display: "flex",
 		alignItems: "center",
+		fontSize: '16px',
+		marginBotton: '10px'
 	};
 
 	return (
