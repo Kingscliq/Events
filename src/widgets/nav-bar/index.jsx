@@ -2,77 +2,112 @@ import React, { useState } from "react";
 import { NavLogo } from "../../assets/images";
 import { CgMenuGridO, CgClose } from "react-icons/cg";
 import "./nav-bar.css";
+import { Link } from "react-router-dom";
 
 const NavBar = ({
-  firstItem,
-  firstItemIcon,
-  secondItem,
-  secondItemIcon,
-  profile,
-  profileIcon,
-  button,
+	firstItem,
+	firstLink,
+	firstItemIcon,
+	secondItem,
+	secondLink,
+	secondItemIcon,
+	profile,
+	profileLink,
+	profileIcon,
+	buttonLink,
+	button,
 }) => {
-  const [toggle, setToggle] = useState({ clicked: false });
+	const [toggle, setToggle] = useState({ clicked: false });
 
-  const handleToggle = () => {
-    setToggle({ clicked: !toggle.clicked });
-  };
+	const handleToggle = () => {
+		setToggle({ clicked: !toggle.clicked });
+		console.log(profileLink);
+	};
 
-  return (
-    <>
-      <div className="nav-bar">
-        <div className="container">
-          <div className="nav-bar-logo">
-            <img src={NavLogo} alt="logo" />
-          </div>
+	const linkStyle = {
+		textDecoration: "none",
+		color: "#0b0d17",
+		display: "flex",
+		alignItems: "center",
+		fontSize: '16px',
+		marginBotton: '10px'
+	};
 
-          {!toggle.clicked ? (
-            <div className="hamburger-menu">
-              <CgMenuGridO onClick={handleToggle} />
-            </div>
-          ) : (
-            <div className="nav-bar-items">
-              <div className="nav-bar-menu-list">
-                <div>
-                  <span>{firstItemIcon}</span>
-                  <p>{firstItem}</p>
-                </div>
-                <div>
-                  <span>{secondItemIcon}</span>
-                  <p>{secondItem}</p>
-                </div>
-                <div>
-                  <span>{profileIcon}</span>
-                  <p>{profile}</p>
-                </div>
-                <div>{button}</div>
-              </div>
+	return (
+		<>
+			<header className="nav-bar">
+				<nav className="container">
+					<div className="nav-bar-logo">
+						<img src={NavLogo} alt="logo" />
+					</div>
 
-              <div className="close-menu">
-                <CgClose onClick={handleToggle} />
-              </div>
-            </div>
-          )}
+					{!toggle.clicked ? (
+						<div className="hamburger-menu">
+							<CgMenuGridO onClick={handleToggle} />
+						</div>
+					) : (
+						<div className="nav-bar-items">
+							<ul className="nav-bar-menu-list">
+								<li>
+									<Link style={linkStyle} to={firstLink}>
+										<span>{firstItemIcon}</span>
+										{firstItem}
+									</Link>
+								</li>
+								<li>
+									<Link style={linkStyle} to={secondLink}>
+										<span>{secondItemIcon}</span>
+										{secondItem}
+									</Link>
+								</li>
+								<li>
+									<Link style={linkStyle} to={profileLink}>
+										<span>{profileIcon}</span>
+										{profile}
+									</Link>
+								</li>
+								<li>
+									<Link style={linkStyle} to={buttonLink}>
+										{button}
+									</Link>
+								</li>
+							</ul>
 
-          <div className="desktop-menu">
-            <div>
-              <span>{firstItemIcon}</span>
-              <p>{firstItem}</p>
-            </div>
-            <div>
-              <span>{secondItemIcon}</span>
-              <p>{secondItem}</p>
-            </div>
-            <div>
-              <span>{profileIcon}</span>
-              <p>{profile}</p>
-            </div>
-            <div>{button}</div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+							<div className="close-menu">
+								<CgClose onClick={handleToggle} />
+							</div>
+						</div>
+					)}
+
+					<ul className="desktop-menu">
+						<li>
+							<Link style={linkStyle} to={firstLink}>
+								<span>{firstItemIcon}</span>
+								{firstItem}
+							</Link>
+						</li>
+						<li>
+							<Link style={linkStyle} to={secondLink}>
+								<span>{secondItemIcon}</span>
+								{secondItem}
+							</Link>
+						</li>
+						<li>
+							<Link style={linkStyle} to={profileLink}>
+								<span>{profileIcon}</span>
+								{profile}
+							</Link>
+						</li>
+						<li>
+							<Link style={linkStyle} to={buttonLink}>
+								{button}
+							</Link>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</>
+	);
 };
 
 export { NavBar };

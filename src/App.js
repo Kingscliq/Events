@@ -1,31 +1,29 @@
 /** @format */
 
-// import { FaEnvelope, FaUserAlt } from "react-icons/fa";
-// import { Button } from "./components/button";
-// import colors from "./config/colors";
-
 import "./App.css";
 import { HeaderWidget } from "./widgets/header-widget";
 import { Footer } from "./widgets/footer";
 import { NavBar } from "./widgets/nav-bar/";
 import { Button } from "./components/button";
-import { CgMenuGridO } from "react-icons/cg";
 import { Login } from "./pages/auth/login";
 import { SignUp } from "./pages/auth/signup";
+import BrowseEvents from "./pages/app/browse-events";
+import EventPreview from "./pages/app/browse-events/event-preview";
+import Routes from "./config/router";
 
 function App() {
   return (
     <div>
       <div className="App">
         <NavBar
-          firstItemIcon={<CgMenuGridO />}
-          firstItem={"it worked"}
-          secondItem={"second me"}
+          firstItem={"Home"}
+          secondItem={"Events"}
+          profileLink={`www.yahoo.com`}
+          profile={"Profile"}
           button={<Button text={"Sign In"} className="btn" />}
         />
         <HeaderWidget />
-        {/* <Login /> */}
-        <SignUp />
+        <Routes />
         <Footer />
       </div>
     </div>

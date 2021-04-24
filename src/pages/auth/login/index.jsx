@@ -5,13 +5,13 @@ import {
   FaEnvelope,
   FaLock,
   FaEye,
-  FaUserAlt,
   FaEyeSlash,
   FaGoogle,
 } from "react-icons/fa";
 import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
+
 const Login = () => {
   const initialFormState = { email: "", password: "" };
 

@@ -5,7 +5,8 @@
 }
 
 .form-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: space-between;
 }
 .form-parent {
@@ -15,7 +16,7 @@
   margin: auto;
 }
 .signup-hero-container {
-  width: 600px;
+  width: 100%;
 }
 
 .login-hero {
@@ -27,12 +28,10 @@
     display: none;
   }
   .form-parent {
-    display: flex;
-    place-items: center;
     width: 100%;
     margin: auto;
   }
   .form-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 } ;
