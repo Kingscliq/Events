@@ -13,21 +13,39 @@ import SpeechLady from "./speech-lady.png";
 import LadyWithGlasses from "./lady-with-glasses.png";
 import Karioke4 from "./karoke-4.png";
 import Karioke5 from "./karioke-5.png";
+import BrowseEvents from "./browse-events.png";
+import HostEvents from "./host-events.png";
+import GenerateLink from "./generate-link.png";
+import IndividualEdit from "./individual-edit.png";
+import SignUpIcon from "./sign-up.png";
+import SocialEvents from "./social-events.png";
+import TechEvents from "./tech-events.png";
+import UploadTemplate from "./upload-template.png";
+import CupLady from "./lady-with-cup.png";
 
 export {
-  FooterLogo,
-  NavLogo,
-  SmilingLady,
-  Karioke,
-  Karioke1,
-  Karioke2,
-  Karioke3,
-  Karioke4,
-  Karioke5,
-  HappyLadies,
-  EventChairs,
-  People,
-  SkySrapper,
-  SpeechLady,
-  LadyWithGlasses,
+	FooterLogo,
+	NavLogo,
+	SmilingLady,
+	Karioke,
+	Karioke1,
+	Karioke2,
+	Karioke3,
+	Karioke4,
+	Karioke5,
+	HappyLadies,
+	EventChairs,
+	People,
+	SkySrapper,
+	SpeechLady,
+	LadyWithGlasses,
+	BrowseEvents,
+	HostEvents,
+	GenerateLink,
+	IndividualEdit,
+	SignUpIcon,
+	SocialEvents,
+	TechEvents,
+	UploadTemplate,
+	CupLady,
 };
