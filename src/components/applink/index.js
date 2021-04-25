@@ -13,9 +13,9 @@ const MenuLink = ({ children, to, exact }) => {
     alignItems: "center",
     fontSize: "16px",
     marginBotton: "10px",
-    transition: "all 1s ease-in-out",
+    transition: "color 2s ease-in-out",
     borderBottom:
-      match === "active" || hover ? "1px solid var(--primary)" : "none",
+      match === "active" || hover ? "2px solid var(--primary)" : "none",
   };
 
   return (

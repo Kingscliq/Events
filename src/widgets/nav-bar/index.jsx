@@ -68,7 +68,7 @@ const NavBar = ({
                   </MenuLink>
                 </li>
                 <li>
-                  <MenuLink to={buttonLink}>{button}</MenuLink>
+                  <Link to={buttonLink}>{button}</Link>
                 </li>
               </ul>
 
@@ -98,7 +98,7 @@ const NavBar = ({
               </MenuLink>
             </li>
             <li>
-              <MenuLink to={buttonLink}>{button}</MenuLink>
+              <Link to={buttonLink}>{button}</Link>
             </li>
           </ul>
         </nav>

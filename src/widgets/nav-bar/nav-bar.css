@@ -35,10 +35,10 @@
   border-bottom: none;
   transition: all 0.5s ease-in-out;
 }
-.nav-bar .container .desktop-menu li:hover,
+/* .nav-bar .container .desktop-menu li:hover,
 .nav-bar-items .nav-bar-menu-list li:hover {
   border-bottom: 2px solid var(--primary);
-}
+} */
 
 .nav-bar-items .nav-bar-menu-list li span,
 .nav-bar .container .desktop-menu span {
