@@ -83,6 +83,12 @@
 	margin: 1rem 0;
 }
 
+.key-features-link-icon {
+	padding: 0 0 0 10px;
+	display: flex;
+	justify-content: center;
+}
+
 .our-categories {
 	margin: 4rem 0 2rem 0;
 }

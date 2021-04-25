@@ -18,9 +18,17 @@ import { Button } from "../../../components/button";
 import { HeaderWidget } from "../../../widgets/header-widget";
 import { Footer } from "../../../widgets/footer";
 import { NavBar } from "../../../widgets/nav-bar";
+import { Link } from "react-router-dom";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import "./landing-page.css";
 
 const LandingPage = () => {
+	const linkStyle = {
+		color: "#F3A563",
+		textDecoration: "none",
+		display: "flex",
+		alignItems: "center",
+	};
 	return (
 		<>
 			<NavBar
@@ -75,16 +83,34 @@ const LandingPage = () => {
 								<img src={HostEvents} alt="host events" />
 								<h3> Host Events </h3>
 								<p> Do you have a lot of guests? Host an event and save time with confirmations. </p>
+								<Link to="" style={linkStyle}>
+									Host event
+									<span className="key-features-link-icon">
+										<AiOutlineArrowRight />
+									</span>
+								</Link>
 							</div>
 							<div className="browse-events">
 								<img src={BrowseEvents} alt="browse events" />
 								<h3> Browse Events </h3>
 								<p> A Last minute occasion? Search for the best event templates from us </p>
+								<Link to="" style={linkStyle}>
+									Browse events
+									<span className="key-features-link-icon">
+										<AiOutlineArrowRight />
+									</span>
+								</Link>
 							</div>
 							<div className="individual-edit">
 								<img src={IndividualEdit} alt="browse events" />
 								<h3> Individual Edit </h3>
 								<p> Allow invited guests edit their names themselves by sharing a link to them </p>
+								<Link to="" style={linkStyle}>
+									Learn more
+									<span className="key-features-link-icon">
+										<AiOutlineArrowRight />
+									</span>
+								</Link>
 							</div>
 						</div>
 					</div>
