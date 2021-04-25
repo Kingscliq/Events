@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { Input } from "../../../components/input";
+import { NavBar } from "../../../widgets/nav-bar";
 import {
   FaEnvelope,
   FaLock,
@@ -22,6 +23,13 @@ const Login = () => {
   };
   return (
     <>
+      <NavBar
+        firstItem={"Home"}
+        secondItem={"Events"}
+        profileLink={`www.yahoo.com`}
+        profile={"Profile"}
+        button={<Button text={"Sign In"} className="btn" />}
+      />
       <section className="form-container">
         <div className="form-parent">
           <Formik
