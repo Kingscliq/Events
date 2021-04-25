@@ -31,6 +31,7 @@ const LandingPage = () => {
     <>
       <NavBar
         firstItem={"Host event"}
+        firstLink={"/"}
         secondItem={"Browse an event"}
         secondLink={"/browse-events"}
         button={<Button text={"Sign In"} className="btn btn-primary" />}

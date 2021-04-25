@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { Karioke4, Karioke2, LadyWithGlasses } from "../../../assets/images";
 import { Button } from "../../../components/button";
@@ -9,6 +10,7 @@ import "./browse-events.css";
 import { NavBar } from "../../../widgets/nav-bar";
 
 const BrowseEvents = () => {
+  const history = useHistory();
   return (
     <>
       <NavBar
@@ -18,7 +20,13 @@ const BrowseEvents = () => {
         secondLink={"/browse-events"}
         profileLink={`www.yahoo.com`}
         profile={"Profile"}
-        button={<Button text={"Sign In"} className="btn" />}
+        button={
+          <Button
+            text={"Sign In"}
+            className="btn"
+            onClick={() => history.push("/signin")}
+          />
+        }
       />
       <section>
         <Search />

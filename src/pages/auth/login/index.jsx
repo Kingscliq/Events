@@ -12,6 +12,7 @@ import {
 import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
+import { Footer } from "../../../widgets/footer";
 
 const Login = () => {
   const initialFormState = { email: "", password: "" };
@@ -25,7 +26,9 @@ const Login = () => {
     <>
       <NavBar
         firstItem={"Home"}
+        firstLink={"/"}
         secondItem={"Events"}
+        secondLink={"/browse-events"}
         profileLink={`www.yahoo.com`}
         profile={"Profile"}
         button={<Button text={"Sign In"} className="btn" />}
@@ -86,6 +89,7 @@ const Login = () => {
           <img src={SmilingLady} alt="smiling-lady" className="login-hero" />
         </div>
       </section>
+      <Footer />
     </>
   );
 };
