@@ -21,19 +21,22 @@ import { NavBar } from "../../../widgets/nav-bar";
 import "./landing-page.css";
 
 const LandingPage = () => {
+  const linkStyle = {
+    color: "#f17140",
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+  };
   return (
     <>
       <NavBar
-        firstItem={"Home"}
-        firstLink={"/"}
-        secondItem={"Events"}
+        firstItem={"Host event"}
+        secondItem={"Browse an event"}
         secondLink={"/browse-events"}
-        profileLink={`www.yahoo.com`}
-        profile={"Profile"}
-        button={<Button text={"Sign In"} className="btn" />}
+        button={<Button text={"Sign In"} className="btn btn-primary" />}
       />
       <HeaderWidget />
-      <main className="landing-page">
+      <main className="landing-page-main">
         <section className="get-started">
           <div className="container">
             <div>
