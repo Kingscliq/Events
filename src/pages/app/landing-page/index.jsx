@@ -18,23 +18,20 @@ import { Button } from "../../../components/button";
 import { HeaderWidget } from "../../../widgets/header-widget";
 import { Footer } from "../../../widgets/footer";
 import { NavBar } from "../../../widgets/nav-bar";
+import {useHistory} from 'react-router-dom'
 import "./landing-page.css";
 
 const LandingPage = () => {
-  const linkStyle = {
-    color: "#f17140",
-    textDecoration: "none",
-    display: "flex",
-    alignItems: "center",
-  };
+
+  const history = useHistory()
   return (
     <>
       <NavBar
         firstItem={"Host event"}
-        firstLink={"/"}
         secondItem={"Browse an event"}
         secondLink={"/browse-events"}
         button={<Button text={"Sign In"} className="btn btn-primary" />}
+        buttonLink={"/signin"}
       />
       <HeaderWidget />
       <main className="landing-page-main">
@@ -43,10 +40,13 @@ const LandingPage = () => {
             <div>
               <h1>Connect through events</h1>
               <p>
-                Bringing you the best events template designs picked out and
                 designed by the best designers.
               </p>
-              <Button text={"Get started"} className="btn btn-primary" />
+              <Button
+                text={"Get started"}
+                className="btn btn-primary"
+                onClick={() => history.push('/signup')}
+              />
             </div>
             <div>
               <img src={SkySrapper} alt="skyscraper" />
@@ -152,7 +152,7 @@ const LandingPage = () => {
                 </div>
               </div>
 
-              <Button text={"Browse Events"} className={"btn"} />
+              <Button text={"Browse Events"} className="btn btn-primary" />
             </div>
           </div>
         </section>
