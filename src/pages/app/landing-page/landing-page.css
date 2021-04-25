@@ -166,6 +166,10 @@
 		width: 85%;
 		margin: auto;
 	}
+
+	.our-categories-images-div div img {
+		width: 250px;
+	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 620px) {
@@ -205,5 +209,9 @@
 	.our-categories-items {
 		width: 85%;
 		margin: auto;
+	}
+
+	.our-categories-images-div div img {
+		width: 180px;
 	}
 }

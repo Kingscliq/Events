@@ -66,11 +66,12 @@ const NavBar = ({
 										{profile}
 									</Link>
 								</li>
-								<li>
+
+								<div>
 									<Link style={linkStyle} to={buttonLink}>
 										{button}
 									</Link>
-								</li>
+								</div>
 							</ul>
 
 							<div className="close-menu">
@@ -98,11 +99,12 @@ const NavBar = ({
 								{profile}
 							</Link>
 						</li>
-						<li>
+
+						<div>
 							<Link style={linkStyle} to={buttonLink}>
 								{button}
 							</Link>
-						</li>
+						</div>
 					</ul>
 				</nav>
 			</header>

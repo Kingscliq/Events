@@ -25,7 +25,9 @@
 	display: flex;
 }
 .nav-bar .container .desktop-menu li,
-.nav-bar-items .nav-bar-menu-list li {
+.nav-bar-items .nav-bar-menu-list li,
+.nav-bar .container .desktop-menu div,
+.nav-bar-items .nav-bar-menu-list div {
 	display: flex;
 	margin-left: 2rem;
 	list-style-type: none;
@@ -34,6 +36,11 @@
 .nav-bar .container .desktop-menu li:hover,
 .nav-bar-items .nav-bar-menu-list li:hover {
 	border-bottom: 2px solid var(--primary);
+}
+
+.nav-bar .container .desktop-menu div .btn,
+.nav-bar-items .nav-bar-menu-list div .btn {
+	width: 150px;
 }
 
 .nav-bar-items .nav-bar-menu-list li span,
