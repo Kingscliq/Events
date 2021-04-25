@@ -32,8 +32,6 @@
 
 .get-started div:nth-child(1) .btn,
 .our-categories-items .btn {
-	color: var(--light);
-	background: var(--primary);
 	margin: 1rem 0;
 	width: 250px;
 }

@@ -27,7 +27,7 @@
 }
 
 .hire-btn .btn-click {
-	color: var(--dark);
+	color: var(--primary);
 	background: var(--light);
 }
 

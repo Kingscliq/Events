@@ -25,11 +25,15 @@
   display: flex;
 }
 .nav-bar .container .desktop-menu li,
-.nav-bar-items .nav-bar-menu-list li {
+.nav-bar-items .nav-bar-menu-list li,
+.nav-bar .container .desktop-menu div,
+.nav-bar-items .nav-bar-menu-list div {
   display: flex;
   margin-left: 2rem;
   list-style-type: none;
   transition-delay: 0.2s;
+  border-bottom: none;
+  transition: all 0.5s ease-in-out;
 }
 .nav-bar .container .desktop-menu li:hover,
 .nav-bar-items .nav-bar-menu-list li:hover {

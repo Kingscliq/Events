@@ -27,7 +27,7 @@ const LandingPage = () => {
         firstItem={"Home"}
         firstLink={"/"}
         secondItem={"Events"}
-        secondLink= {'/browse-events'}
+        secondLink={"/browse-events"}
         profileLink={`www.yahoo.com`}
         profile={"Profile"}
         button={<Button text={"Sign In"} className="btn" />}
