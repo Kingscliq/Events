@@ -14,6 +14,7 @@ import { Button } from "../../../components/button";
 import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
+import FormInput from "../../../components/form-input";
 
 const SignUp = () => {
   const initialFormState = { email: "", password: "" };
@@ -51,24 +52,25 @@ const SignUp = () => {
                     Already Have an Account? &nbsp;
                     <span className="text-primary">SignIn</span>
                   </p>
-                  <Input
+                  <FormInput
                     type="text"
                     className="textField"
                     icon={<FaUserAlt />}
                     placeholder="Enter Username"
                   />
-                  <Input
+                  <FormInput
                     type="text"
                     className="textField"
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
                   />
-                  <Input
-                    type={eye ? "password" : "text"}
+
+                  <FormInput
+                    type={eye ? "text" : "password"}
                     className="textField"
                     icon={<FaLock />}
                     placeholder="Enter Password"
-                    rightIcon={eye ? <FaEyeSlash /> : <FaEye />}
+                    rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                   />
                   <Button

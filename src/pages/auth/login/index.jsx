@@ -13,6 +13,7 @@ import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
+import FormInput from "../../../components/form-input";
 
 const Login = () => {
   const initialFormState = { email: "", password: "" };
@@ -51,18 +52,18 @@ const Login = () => {
                     Dont Have an Account ? &nbsp;
                     <span className="text-primary">SignUp</span>
                   </p>
-                  <Input
+                  <FormInput
                     type="text"
                     className="textField"
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
                   />
-                  <Input
-                    type={eye ? "password" : "text"}
+                  <FormInput
+                    type={eye ? "text" : "password"}
                     className="textField"
                     icon={<FaLock />}
                     placeholder="Enter Password"
-                    rightIcon={eye ? <FaEyeSlash /> : <FaEye />}
+                    rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                   />
                   <Button
@@ -90,6 +91,7 @@ const Login = () => {
         </div>
       </section>
       <Footer />
+      Form
     </>
   );
 };
