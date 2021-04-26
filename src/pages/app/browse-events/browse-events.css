@@ -27,15 +27,14 @@
 }
 
 .events-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 .event-card-placeholder {
   height: auto;
   padding: 20px;
-  width: 300px;
   margin: auto 30px;
+  width: 300px;
 }
 .event-header {
   margin: 30px auto;
@@ -95,10 +94,9 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+
   .browse-hero-container {
-    display: grid;
     grid-template-columns: 1fr;
-    margin-bottom: 50px;
   }
   .browse-hero-desc {
     margin: auto;

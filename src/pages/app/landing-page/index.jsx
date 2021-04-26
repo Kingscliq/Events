@@ -18,12 +18,11 @@ import { Button } from "../../../components/button";
 import { HeaderWidget } from "../../../widgets/header-widget";
 import { Footer } from "../../../widgets/footer";
 import { NavBar } from "../../../widgets/nav-bar";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import "./landing-page.css";
 
 const LandingPage = () => {
-
-  const history = useHistory()
+  const history = useHistory();
   return (
     <>
       <NavBar
@@ -39,13 +38,11 @@ const LandingPage = () => {
           <div className="container">
             <div>
               <h1>Connect through events</h1>
-              <p>
-                designed by the best designers.
-              </p>
+              <p>designed by the best designers.</p>
               <Button
                 text={"Get started"}
                 className="btn btn-primary"
-                onClick={() => history.push('/signup')}
+                onClick={() => history.push("/signup")}
               />
             </div>
             <div>
@@ -152,7 +149,11 @@ const LandingPage = () => {
                 </div>
               </div>
 
-              <Button text={"Browse Events"} className="btn btn-primary" />
+              <Button
+                text={"Browse Events"}
+                className="btn btn-primary"
+                onClick={() => history.push("/browse-events")}
+              />
             </div>
           </div>
         </section>
