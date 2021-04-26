@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom'
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
 import {
@@ -22,6 +23,9 @@ const SignUp = () => {
   const handleEyeToggle = (e) => {
     setEye((prevState) => !prevState);
   };
+
+
+  const history = useHistory()
 
   return (
     <>
@@ -50,7 +54,13 @@ const SignUp = () => {
                   </header>
                   <p className="form-para" style={{ justifyContent: "center" }}>
                     Already Have an Account? &nbsp;
-                    <span className="text-primary">SignIn</span>
+                    <span
+                      className="text-primary"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => history.push("/signin")}
+                    >
+                      SignIn
+                    </span>
                   </p>
                   <FormInput
                     type="text"
