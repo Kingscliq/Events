@@ -24,28 +24,22 @@ import "./landing-page.css";
 
 const LandingPage = () => {
 	const linkStyle = {
-		color: "#F3A563",
+		color: "#f17140",
 		textDecoration: "none",
 		display: "flex",
 		alignItems: "center",
 	};
 	return (
 		<>
-			<NavBar
-				firstItem={"Home"}
-				secondItem={"Events"}
-				profileLink={`www.yahoo.com`}
-				profile={"Profile"}
-				button={<Button text={"Sign In"} className="btn" />}
-			/>
+			<NavBar firstItem={"Host event"} secondItem={"Browse an event"} button={<Button text={"Sign In"} className="btn btn-primary" />} />
 			<HeaderWidget />
-			<main className="landing-page">
+			<main className="landing-page-main">
 				<section className="get-started">
 					<div className="container">
 						<div>
 							<h1>Connect through events</h1>
 							<p>Bringing you the best events template designs picked out and designed by the best designers.</p>
-							<Button text={"Get started"} className={"btn"} />
+							<Button text={"Get started"} className="btn btn-primary" />
 						</div>
 						<div>
 							<img src={SkySrapper} alt="skyscraper" />
@@ -154,7 +148,7 @@ const LandingPage = () => {
 								</div>
 							</div>
 
-							<Button text={"Browse Events"} className={"btn"} />
+							<Button text={"Browse Events"} className="btn btn-primary" />
 						</div>
 					</div>
 				</section>
