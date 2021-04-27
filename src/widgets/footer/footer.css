@@ -40,7 +40,7 @@ footer {
   color: var(--light-grey);
 }
 .footer-list li:hover {
-  color: #ffffff;
+  color: var(--light);
 }
 
 .copy-rights-section {

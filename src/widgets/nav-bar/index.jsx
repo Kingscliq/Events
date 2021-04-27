@@ -3,6 +3,7 @@ import { NavLogo } from "../../assets/images";
 import { CgMenuGridO, CgClose } from "react-icons/cg";
 import "./nav-bar.css";
 import { Link } from "react-router-dom";
+import MenuLink from "../../components/applink";
 
 const NavBar = ({
 	firstItem,
@@ -24,14 +25,14 @@ const NavBar = ({
 		console.log(profileLink);
 	};
 
-	const linkStyle = {
-		textDecoration: "none",
-		color: "#0b0d17",
-		display: "flex",
-		alignItems: "center",
-		fontSize: "16px",
-		marginBotton: "10px",
-	};
+	// const linkStyle = {
+	// 	textDecoration: "none",
+	// 	color: "#0b0d17",
+	// 	display: "flex",
+	// 	alignItems: "center",
+	// 	fontSize: "16px",
+	// 	marginBotton: "10px",
+	// };
 
 	return (
 		<>
@@ -49,29 +50,26 @@ const NavBar = ({
 						<div className="nav-bar-items">
 							<ul className="nav-bar-menu-list">
 								<li>
-									<Link style={linkStyle} to={firstLink}>
+									<MenuLink to={firstLink}>
 										<span>{firstItemIcon}</span>
 										{firstItem}
-									</Link>
+									</MenuLink>
 								</li>
 								<li>
-									<Link style={linkStyle} to={secondLink}>
+									<MenuLink to={secondLink}>
 										<span>{secondItemIcon}</span>
 										{secondItem}
-									</Link>
+									</MenuLink>
 								</li>
 								<li>
-									<Link style={linkStyle} to={profileLink}>
+									<MenuLink to={profileLink}>
 										<span>{profileIcon}</span>
 										{profile}
-									</Link>
+									</MenuLink>
 								</li>
-
-								<div>
-									<Link style={linkStyle} to={buttonLink}>
-										{button}
-									</Link>
-								</div>
+								<li>
+									<Link to={buttonLink}>{button}</Link>
+								</li>
 							</ul>
 
 							<div className="close-menu">
@@ -82,29 +80,26 @@ const NavBar = ({
 
 					<ul className="desktop-menu">
 						<li>
-							<Link style={linkStyle} to={firstLink}>
+							<MenuLink to={firstLink}>
 								<span>{firstItemIcon}</span>
 								{firstItem}
-							</Link>
+							</MenuLink>
 						</li>
 						<li>
-							<Link style={linkStyle} to={secondLink}>
+							<MenuLink to={secondLink}>
 								<span>{secondItemIcon}</span>
 								{secondItem}
-							</Link>
+							</MenuLink>
 						</li>
 						<li>
-							<Link style={linkStyle} to={profileLink}>
+							<MenuLink to={profileLink}>
 								<span>{profileIcon}</span>
 								{profile}
-							</Link>
+							</MenuLink>
 						</li>
-
-						<div>
-							<Link style={linkStyle} to={buttonLink}>
-								{button}
-							</Link>
-						</div>
+						<li>
+							<Link to={buttonLink}>{button}</Link>
+						</li>
 					</ul>
 				</nav>
 			</header>

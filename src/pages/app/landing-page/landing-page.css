@@ -85,12 +85,6 @@
 	margin: 1rem 0;
 }
 
-.key-features-link-icon {
-	padding: 0 0 0 10px;
-	display: flex;
-	justify-content: center;
-}
-
 .our-categories {
 	margin: 4rem 0 2rem 0;
 }
@@ -175,10 +169,6 @@
 		width: 85%;
 		margin: auto;
 	}
-
-	.our-categories-images-div div img {
-		width: 250px;
-	}
 }
 
 @media screen and (min-width: 200px) and (max-width: 620px) {
@@ -219,9 +209,5 @@
 	.our-categories-items {
 		width: 85%;
 		margin: auto;
-	}
-
-	.our-categories-images-div div img {
-		width: 180px;
 	}
 }

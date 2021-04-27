@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
 import { Input } from "../../../components/input";
+import { NavBar } from "../../../widgets/nav-bar";
 import {
   FaEnvelope,
   FaLock,
@@ -11,6 +12,7 @@ import {
 import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
+import { Footer } from "../../../widgets/footer";
 
 const Login = () => {
   const initialFormState = { email: "", password: "" };
@@ -22,6 +24,15 @@ const Login = () => {
   };
   return (
     <>
+      <NavBar
+        firstItem={"Home"}
+        firstLink={"/"}
+        secondItem={"Events"}
+        secondLink={"/browse-events"}
+        profileLink={`www.yahoo.com`}
+        profile={"Profile"}
+        button={<Button text={"Sign In"} className="btn" />}
+      />
       <section className="form-container">
         <div className="form-parent">
           <Formik
@@ -78,6 +89,7 @@ const Login = () => {
           <img src={SmilingLady} alt="smiling-lady" className="login-hero" />
         </div>
       </section>
+      <Footer />
     </>
   );
 };
