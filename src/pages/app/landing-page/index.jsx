@@ -18,11 +18,14 @@ import { Button } from "../../../components/button";
 import { HeaderWidget } from "../../../widgets/header-widget";
 import { Footer } from "../../../widgets/footer";
 import { NavBar } from "../../../widgets/nav-bar";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import "./landing-page.css";
 
 const LandingPage = () => {
+	const history = useHistory();
+
 	const linkStyle = {
 		color: "#f17140",
 		textDecoration: "none",
@@ -44,8 +47,8 @@ const LandingPage = () => {
 					<div className="container">
 						<div>
 							<h1>Connect through events</h1>
-							<p>Bringing you the best events template designs picked out and designed by the best designers.</p>
-							<Button text={"Get started"} className="btn btn-primary" />
+							<p>designed by the best designers.</p>
+							<Button text={"Get started"} className="btn btn-primary" onClick={() => history.push("/signup")} />
 						</div>
 						<div>
 							<img src={SkySrapper} alt="skyscraper" />
@@ -82,7 +85,7 @@ const LandingPage = () => {
 							<div className="host-events">
 								<img src={HostEvents} alt="host events" />
 								<h3> Host Events </h3>
-								<p> Do you have a lot of guests? Host an event and save time with confirmations. </p>
+								<p>Do you have a lot of guests? Host an event and save time with confirmations.</p>
 								<Link to="" style={linkStyle}>
 									Host event
 									<span className="key-features-link-icon">
@@ -93,7 +96,7 @@ const LandingPage = () => {
 							<div className="browse-events">
 								<img src={BrowseEvents} alt="browse events" />
 								<h3> Browse Events </h3>
-								<p> A Last minute occasion? Search for the best event templates from us </p>
+								<p>A Last minute occasion? Search for the best event templates from us</p>
 								<Link to="" style={linkStyle}>
 									Browse events
 									<span className="key-features-link-icon">
@@ -104,7 +107,7 @@ const LandingPage = () => {
 							<div className="individual-edit">
 								<img src={IndividualEdit} alt="browse events" />
 								<h3> Individual Edit </h3>
-								<p> Allow invited guests edit their names themselves by sharing a link to them </p>
+								<p>Allow invited guests edit their names themselves by sharing a link to them</p>
 								<Link to="" style={linkStyle}>
 									Learn more
 									<span className="key-features-link-icon">
@@ -154,7 +157,7 @@ const LandingPage = () => {
 								</div>
 							</div>
 
-							<Button text={"Browse Events"} className="btn btn-primary" />
+							<Button text={"Browse Events"} className="btn btn-primary" onClick={() => history.push("/browse-events")} />
 						</div>
 					</div>
 				</section>

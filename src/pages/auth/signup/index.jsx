@@ -13,6 +13,7 @@ import {
 import { Button } from "../../../components/button";
 import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
+import { Footer } from "../../../widgets/footer";
 
 const SignUp = () => {
   const initialFormState = { email: "", password: "" };
@@ -25,7 +26,9 @@ const SignUp = () => {
     <>
       <NavBar
         firstItem={"Home"}
+        firstLink={"/"}
         secondItem={"Events"}
+        secondLink={"/browse-events"}
         profileLink={`www.yahoo.com`}
         profile={"Profile"}
         button={<Button text={"Sign In"} className="btn" />}
@@ -93,6 +96,7 @@ const SignUp = () => {
           <img src={EventChairs} className="login-hero" alt="hero" />
         </div>
       </section>
+      <Footer />
     </>
   );
 };
