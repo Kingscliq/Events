@@ -1,5 +1,6 @@
 .main-header-widget {
 	background: #da564a;
+	margin: 20px 0;
 }
 
 .main-header-widget .container {
@@ -26,13 +27,16 @@
 }
 
 .hire-btn .btn-click {
-	color: var(--dark);
+	color: var(--primary);
 	background: var(--light);
 }
 
 @media screen and (max-width: 768px) {
+	.main-header-widget {
+		margin: 0;
+	}
+
 	.main-header-widget .container {
-		line-height: 40px;
 		padding: 1rem;
 		justify-content: center;
 		text-align: center;
