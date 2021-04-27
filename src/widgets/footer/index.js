@@ -1,6 +1,7 @@
 import React from "react";
 import { FooterLogo } from "../../assets/images";
 import "./footer.css";
+import { FootLink } from "../../components/applink";
 
 const Footer = () => {
   return (
@@ -17,30 +18,62 @@ const Footer = () => {
           <div className="footer-grid">
             <ul className="footer-list">
               <h3> Product </h3>
-              <li> Overview </li>
-              <li> Features </li>
-              <li> Pricing </li>
-              <li> Releases </li>
+              <li>
+                <FootLink>Overview</FootLink>{" "}
+              </li>
+              <li>
+                <FootLink>Features</FootLink>
+              </li>
+              <li>
+                <FootLink>Pricing </FootLink>
+              </li>
+              <li>
+                <FootLink>Releases</FootLink>
+              </li>
             </ul>
             <ul className="footer-list">
               <h3> Company </h3>
-              <li> About </li>
-              <li> Contact </li>
-              <li> Partners </li>
-              <li> Careers </li>
+              <li>
+                <FootLink> About </FootLink>
+              </li>
+              <li>
+                {" "}
+                <FootLink>Contact</FootLink>
+              </li>
+              <li>
+                <FootLink> Partners</FootLink>{" "}
+              </li>
+              <li>
+                {" "}
+                <FootLink>Careers </FootLink>
+              </li>
             </ul>
             <ul className="footer-list">
               <h3> Support </h3>
-              <li> Help </li>
-              <li> Privacy Policy </li>
-              <li> Legal </li>
-              <li> Status </li>
+              <li>
+                <FootLink> Help</FootLink>{" "}
+              </li>
+              <li>
+                <FootLink> Privacy Policy</FootLink>{" "}
+              </li>
+              <li>
+                <FootLink> Legal </FootLink>
+              </li>
+              <li>
+                <FootLink> Status</FootLink>{" "}
+              </li>
             </ul>
             <ul className="footer-list">
               <h3> Follow Us </h3>
-              <li>Twitter</li>
-              <li>Instagram</li>
-              <li>Facebook</li>
+              <li>
+                <FootLink>Twitter</FootLink>
+              </li>
+              <li>
+                <FootLink>Instagram</FootLink>
+              </li>
+              <li>
+                <FootLink>Facebook</FootLink>
+              </li>
             </ul>
           </div>
         </div>

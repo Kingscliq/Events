@@ -10,11 +10,20 @@
   flex-direction: column;
   padding: 35px;
   gap: 20px;
+  margin-left: 30px;
 }
 
 .browse-hero-desc h2 {
   font-size: 48px;
   font-weight: 600;
+}
+
+.browse-hero-img {
+  width: auto;
+}
+
+.browse-hero-img img {
+  width: 100%;
 }
 
 .events-list {
@@ -33,7 +42,7 @@
 }
 
 .more-btn {
-  width: 400px;
+  width: 418px;
   margin: 20px auto;
 }
 .arrow-icon {
@@ -90,5 +99,13 @@
     display: grid;
     grid-template-columns: 1fr;
     margin-bottom: 50px;
+  }
+  .browse-hero-desc {
+    margin: auto;
+    /* width: 500px; */
+    max-width: 100%;
+  }
+  .browse-hero-img {
+    max-width: 100%;
   }
 }
