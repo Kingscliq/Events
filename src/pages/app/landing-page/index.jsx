@@ -31,7 +31,12 @@ const LandingPage = () => {
 	};
 	return (
 		<>
-			<NavBar firstItem={"Host event"} secondItem={"Browse an event"} button={<Button text={"Sign In"} className="btn btn-primary" />} />
+			<NavBar
+				firstItem={"Host event"}
+				secondItem={"Browse an event"}
+				secondLink={"/browse-events"}
+				button={<Button text={"Sign In"} className="btn btn-primary" />}
+			/>
 			<HeaderWidget />
 			<main className="landing-page-main">
 				<section className="get-started">
