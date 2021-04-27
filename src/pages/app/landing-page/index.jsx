@@ -36,6 +36,7 @@ const LandingPage = () => {
 				secondItem={"Browse an event"}
 				secondLink={"/browse-events"}
 				button={<Button text={"Sign In"} className="btn btn-primary" />}
+				buttonLink={"/signin"}
 			/>
 			<HeaderWidget />
 			<main className="landing-page-main">
