@@ -13,11 +13,6 @@
 	color: #ffffff;
 }
 
-.hire-text,
-.hire-btn {
-	font-family: "Google Sans", sans-serif;
-}
-
 .hire-text p:nth-child(1) {
 	font-size: 40px;
 }
@@ -29,6 +24,9 @@
 .hire-btn .btn-click {
 	color: var(--primary);
 	background: var(--light);
+}
+.hire-btn .btn-click:hover {
+	color: var(--dark);
 }
 
 @media screen and (max-width: 768px) {
