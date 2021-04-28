@@ -27,14 +27,14 @@
 }
 
 .events-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
 .event-card-placeholder {
-  height: auto;
-  padding: 20px;
-  margin: auto 30px;
-  width: 300px;
+  flex: 33%;
+  max-width: 33%;
+  padding: 0 4px;
 }
 .event-header {
   margin: 30px auto;
@@ -94,9 +94,10 @@
     display: grid;
     grid-template-columns: 1fr;
   }
-
   .browse-hero-container {
+    display: grid;
     grid-template-columns: 1fr;
+    margin-bottom: 50px;
   }
   .browse-hero-desc {
     margin: auto;
@@ -105,5 +106,15 @@
   }
   .browse-hero-img {
     max-width: 100%;
+  }
+
+  .event-card-placeholder {
+    flex: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .more-btn {
+    max-width: 70%;
+    margin: 20px auto;
   }
 }

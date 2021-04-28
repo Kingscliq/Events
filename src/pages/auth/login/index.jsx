@@ -8,17 +8,20 @@ import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
+import FormInput from "../../../components/form-input";
 
 const Login = () => {
 	const initialFormState = { email: "", password: "" };
 
-	const history = useHistory();
+	//  HAndle Password Visibility
 	const [eye, setEye] = useState(false);
 
 	const handleEyeToggle = (e) => {
 		setEye((prevState) => !prevState);
 	};
 
+	// import UseHistory for Routing
+	const history = useHistory();
 	return (
 		<>
 			<NavBar
@@ -44,18 +47,18 @@ const Login = () => {
 										<h2>Sign In</h2>
 									</header>
 									<p className="form-para" style={{ justifyContent: "center" }}>
-										Dont Have an Account ? &nbsp;
-										<span className="text-primary" onClick={() => history.push("/signup")}>
+										Don't Have an Account ? &nbsp;
+										<span className="text-primary" style={{ cursor: "pointer" }} onClick={() => history.push("/signup")}>
 											SignUp
 										</span>
 									</p>
-									<Input type="text" className="textField" icon={<FaEnvelope />} placeholder="Enter Email" />
-									<Input
-										type={eye ? "password" : "text"}
+									<FormInput type="text" className="textField" icon={<FaEnvelope />} placeholder="Enter Email" />
+									<FormInput
+										type={eye ? "text" : "password"}
 										className="textField"
 										icon={<FaLock />}
 										placeholder="Enter Password"
-										rightIcon={eye ? <FaEyeSlash /> : <FaEye />}
+										rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
 										handleClick={handleEyeToggle}
 									/>
 									<Button text="Sign In" type="submit" className="btn btn-primary" />
@@ -74,6 +77,7 @@ const Login = () => {
 				</div>
 			</section>
 			<Footer />
+			Form
 		</>
 	);
 };

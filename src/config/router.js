@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Link, Route } from "react-router-dom";
 import BrowseEvents from "../pages/app/browse-events";
 import EventPreview from "../pages/app/browse-events/event-preview";
 import { HostEvent } from "../pages/app/host-event";
