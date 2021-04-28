@@ -22,6 +22,12 @@ import SocialEvents from "./social-events.png";
 import TechEvents from "./tech-events.png";
 import UploadTemplate from "./upload-template.png";
 import CupLady from "./lady-with-cup.png";
+import CalendarIcon from "./calendar-icon.png";
+import ClockIcon from "./clock-icon.png";
+import FileIcon from "./file-icon.png";
+import PaintpadIcon from "./paintpad-icon.png";
+import PeopleIcon from "./people-icon.png";
+import VideocameraIcon from "./videocamera-icon.png";
 
 export {
 	FooterLogo,
@@ -48,4 +54,10 @@ export {
 	TechEvents,
 	UploadTemplate,
 	CupLady,
+	CalendarIcon,
+	ClockIcon,
+	FileIcon,
+	PaintpadIcon,
+	PeopleIcon,
+	VideocameraIcon,
 };

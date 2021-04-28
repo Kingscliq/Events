@@ -41,4 +41,12 @@
 		justify-content: center;
 		text-align: center;
 	}
+
+	.hire-text p:nth-child(2) {
+		padding: 12px;
+	}
+
+	.hire-btn .btn-click {
+		height: auto;
+	}
 }

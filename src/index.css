@@ -12,6 +12,7 @@
 	--grey: #161616;
 	--darkgrey: #21212152;
 	--light-grey: hsla(0, 0%, 100%, 0.5);
+	--lighter-grey: #c4c4c4;
 }
 
 * {

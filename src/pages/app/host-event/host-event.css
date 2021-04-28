@@ -1,0 +1,130 @@
+.host-event .container {
+	padding-bottom: 2rem;
+}
+
+.host-event-page {
+	display: flex;
+	justify-content: space-between;
+	margin: 2rem 0 4rem 0;
+	flex-wrap: wrap;
+}
+
+.host-event-guide,
+.form-input-div {
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #fffdfd;
+}
+
+.host-event-guide {
+	width: 40%;
+	padding: 6rem 3rem;
+}
+.host-event-form-container {
+	width: 50%;
+}
+
+.host-event-guide h1 {
+	font-size: 55px;
+}
+.host-event-guide p {
+	margin: 2rem 0;
+}
+.host-event-guide .progress-bar {
+	height: 6px;
+	width: 300px;
+	margin-top: 5px;
+	background-color: var(--lighter-grey);
+	border-left: 100px solid var(--primary);
+}
+
+.host-event-form-container form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	height: 100%;
+}
+
+.form-input-div {
+	display: flex;
+	padding: 3rem;
+}
+.form-input-div .form-input {
+	width: 350px;
+	margin-left: 1rem;
+}
+.form-input-div .form-input h2 {
+	margin-bottom: 1rem;
+}
+.form-input-div .form-input input {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid var(--grey);
+	padding: 10px 0;
+	outline: none;
+	background: #fffdfd;
+}
+
+.host-event .host-event-buttons {
+	display: flex;
+	justify-content: flex-end;
+}
+.host-event .host-event-buttons .btn {
+	width: 180px;
+	margin-left: 2rem;
+}
+
+@media screen and (min-width: 850px) and (max-width: 1000px) {
+	.host-event-guide {
+		width: 50%;
+		padding: 6rem 3rem;
+	}
+	.host-event-form-container {
+		width: 46%;
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 849px) {
+	.host-event-guide {
+		width: 50%;
+		padding: 6rem 2rem;
+	}
+	.host-event-form-container {
+		width: 46%;
+	}
+
+	.form-input-div {
+		padding: 2rem;
+	}
+
+	.host-event-guide .progress-bar {
+		width: 270px;
+		border-left: 90px solid var(--primary);
+	}
+}
+
+@media screen and (min-width: 220px) and (max-width: 768px) {
+	.host-event-page {
+		display: block;
+	}
+
+	.host-event-guide {
+		width: 90%;
+		margin: auto;
+		padding: 4rem 2rem;
+	}
+	.host-event-form-container {
+		width: 90%;
+		margin: auto;
+	}
+
+	.form-input-div {
+		padding: 2rem;
+		margin-top: 2rem;
+	}
+
+	.host-event .host-event-buttons .btn {
+		width: 100px;
+		height: auto;
+	}
+}

@@ -94,7 +94,7 @@
 	}
 
 	.nav-bar-items .nav-bar-menu-list li {
-		margin-bottom: 0.7rem;
+		margin-bottom: 1rem;
 	}
 	.nav-bar-items .nav-bar-menu-list li:nth-child(1) {
 		transition-delay: 0.7s;
