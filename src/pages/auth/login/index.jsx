@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
 import {
@@ -13,15 +14,20 @@ import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
+import FormInput from "../../../components/form-input";
 
 const Login = () => {
   const initialFormState = { email: "", password: "" };
 
+  //  HAndle Password Visibility
   const [eye, setEye] = useState(false);
 
   const handleEyeToggle = (e) => {
     setEye((prevState) => !prevState);
   };
+
+  // import UseHistory for Routing
+  const history = useHistory();
   return (
     <>
       <NavBar
@@ -48,21 +54,27 @@ const Login = () => {
                     <h2>Sign In</h2>
                   </header>
                   <p className="form-para" style={{ justifyContent: "center" }}>
-                    Dont Have an Account ? &nbsp;
-                    <span className="text-primary">SignUp</span>
+                    Don't Have an Account ? &nbsp;
+                    <span
+                      className="text-primary"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => history.push("/signup")}
+                    >
+                      SignUp
+                    </span>
                   </p>
-                  <Input
+                  <FormInput
                     type="text"
                     className="textField"
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
                   />
-                  <Input
-                    type={eye ? "password" : "text"}
+                  <FormInput
+                    type={eye ? "text" : "password"}
                     className="textField"
                     icon={<FaLock />}
                     placeholder="Enter Password"
-                    rightIcon={eye ? <FaEyeSlash /> : <FaEye />}
+                    rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                   />
                   <Button
@@ -90,6 +102,7 @@ const Login = () => {
         </div>
       </section>
       <Footer />
+      Form
     </>
   );
 };
