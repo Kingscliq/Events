@@ -30,10 +30,11 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
+  gap: 30px;
 }
 .event-card-placeholder {
-  flex: 33%;
-  max-width: 33%;
+  flex: 30%;
+  max-width: 30%;
   padding: 0 4px;
 }
 .event-header {

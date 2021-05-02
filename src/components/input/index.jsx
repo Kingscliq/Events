@@ -7,12 +7,13 @@ const Input = ({
   style,
   className,
   icon,
-  handleChange,
+  onChange,
   rightIcon,
   handleClick,
   onFocus,
   inputStyle,
   onBlur,
+  name,
   ...props
 }) => {
   return (
@@ -25,7 +26,8 @@ const Input = ({
         placeholder={placeholder}
         style={inputStyle}
         className={className}
-        onChange={handleChange}
+        onChange={onChange}
+        name={name}
       ></input>
       <span className="icon" onClick={handleClick}>
         {rightIcon}
