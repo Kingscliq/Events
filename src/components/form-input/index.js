@@ -8,6 +8,8 @@ const FormInput = ({
   placeholder,
   rightIcon,
   handleClick,
+  onChange,
+  name,
   ...props
 }) => {
   const [focus, setFocus] = useState(false);
@@ -16,6 +18,7 @@ const FormInput = ({
       type={type}
       className={className}
       icon={icon}
+      onChange={onChange}
       style={{
         transition: "box-shadow .3s ease-in-out",
         boxShadow: focus ? "0 1px 6px rgb(32 33 36 / 28%)" : "none",
@@ -26,6 +29,7 @@ const FormInput = ({
       onBlur={() => setFocus(false)}
       rightIcon={rightIcon}
       handleClick={handleClick}
+      name={name}
     />
   );
 };

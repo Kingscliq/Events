@@ -18,8 +18,7 @@ import { Button } from "../../../components/button";
 import { HeaderWidget } from "../../../widgets/header-widget";
 import { Footer } from "../../../widgets/footer";
 import { NavBar } from "../../../widgets/nav-bar";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import "./landing-page.css";
 
@@ -36,6 +35,7 @@ const LandingPage = () => {
 		<>
 			<NavBar
 				firstItem={"Host event"}
+				firstLink={"/host-event"}
 				secondItem={"Browse an event"}
 				secondLink={"/browse-events"}
 				button={<Button text={"Sign In"} className="btn btn-primary" />}
@@ -97,7 +97,7 @@ const LandingPage = () => {
 								<img src={BrowseEvents} alt="browse events" />
 								<h3> Browse Events </h3>
 								<p>A Last minute occasion? Search for the best event templates from us</p>
-								<Link to="" style={linkStyle}>
+								<Link to="/browse-events" style={linkStyle}>
 									Browse events
 									<span className="key-features-link-icon">
 										<AiOutlineArrowRight />

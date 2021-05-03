@@ -13,11 +13,6 @@
 	color: #ffffff;
 }
 
-.hire-text,
-.hire-btn {
-	font-family: "Google Sans", sans-serif;
-}
-
 .hire-text p:nth-child(1) {
 	font-size: 40px;
 }
@@ -30,6 +25,9 @@
 	color: var(--primary);
 	background: var(--light);
 }
+.hire-btn .btn-click:hover {
+	color: var(--dark);
+}
 
 @media screen and (max-width: 768px) {
 	.main-header-widget {
@@ -40,5 +38,13 @@
 		padding: 1rem;
 		justify-content: center;
 		text-align: center;
+	}
+
+	.hire-text p:nth-child(2) {
+		padding: 12px;
+	}
+
+	.hire-btn .btn-click {
+		height: auto;
 	}
 }

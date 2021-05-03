@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
+import axios from "axios";
 import {
   FaEnvelope,
   FaLock,
@@ -44,12 +45,20 @@ const Login = () => {
           <Formik
             initialValues={initialFormState}
             onSubmit={(data) => {
-              console.log(data);
+              axios
+                .post(
+                  "https://confirmaxion-api.herokuapp.com/users/login",
+                  data
+                )
+                .then((res) => {
+                  console.log(res.headers);
+                })
+                .catch((err) => console.log(err));
             }}
           >
             {({ values, handleBlur, handleChange, handleSubmit }) => (
               <>
-                <form className="card">
+                <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
                     <h2>Sign In</h2>
                   </header>
@@ -68,6 +77,9 @@ const Login = () => {
                     className="textField"
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
+                    value={values.email}
+                    name="email"
+                    onChange={handleChange}
                   />
                   <FormInput
                     type={eye ? "text" : "password"}
@@ -76,6 +88,9 @@ const Login = () => {
                     placeholder="Enter Password"
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
+                    value={values.password}
+                    name="password"
+                    onChange={handleChange}
                   />
                   <Button
                     text="Sign In"
