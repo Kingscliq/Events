@@ -30,12 +30,26 @@
 .host-event-guide p {
 	margin: 2rem 0;
 }
-.host-event-guide .progress-bar {
+
+.host-event-guide .progress-bar-one,
+.host-event-guide .progress-bar-two,
+.host-event-guide .progress-bar-three {
 	height: 6px;
-	width: 300px;
 	margin-top: 5px;
 	background-color: var(--lighter-grey);
+}
+
+.host-event-guide .progress-bar-one {
+	width: 300px;
 	border-left: 100px solid var(--primary);
+}
+.host-event-guide .progress-bar-two {
+	width: 300px;
+	border-left: 200px solid var(--primary);
+}
+.host-event-guide .progress-bar-three {
+	width: 300px;
+	border-left: 300px solid var(--primary);
 }
 
 .host-event-form-container form {
@@ -97,9 +111,17 @@
 		padding: 2rem;
 	}
 
-	.host-event-guide .progress-bar {
+	.host-event-guide .progress-bar-one {
 		width: 270px;
 		border-left: 90px solid var(--primary);
+	}
+	.host-event-guide .progress-bar-two {
+		width: 270px;
+		border-left: 135px solid var(--primary);
+	}
+	.host-event-guide .progress-bar-three {
+		width: 270px;
+		border-left: 270px solid var(--primary);
 	}
 }
 
