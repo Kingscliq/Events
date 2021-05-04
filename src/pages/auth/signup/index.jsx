@@ -1,6 +1,6 @@
 import { Formik } from "formik";
 import React, { useState } from "react";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
 import {
@@ -16,16 +16,16 @@ import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
+import axios from "axios";
 
 const SignUp = () => {
-  const initialFormState = { email: "", password: "" };
+  const initialFormState = { first_name: "", email: "", password: "" };
   const [eye, setEye] = useState(false);
   const handleEyeToggle = (e) => {
     setEye((prevState) => !prevState);
   };
 
-
-  const history = useHistory()
+  const history = useHistory();
 
   return (
     <>
@@ -44,11 +44,20 @@ const SignUp = () => {
             initialValues={initialFormState}
             onSubmit={(data) => {
               console.log(data);
+              axios
+                .post(
+                  "https://confirmaxion-api.herokuapp.com/users/register",
+                  data
+                )
+                .then((res) => {
+                  console.log("Data Submitted Successfully", res.data);
+                })
+                .catch((err) => console.log("error", err));
             }}
           >
             {({ values, handleBlur, handleChange, handleSubmit }) => (
               <>
-                <form className="card">
+                <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
                     <h2>Sign Up</h2>
                   </header>
@@ -66,13 +75,21 @@ const SignUp = () => {
                     type="text"
                     className="textField"
                     icon={<FaUserAlt />}
-                    placeholder="Enter Username"
+                    placeholder="Enter Firstname"
+                    value={values.first_name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="first_name"
                   />
                   <FormInput
                     type="text"
                     className="textField"
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
+                    values={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="email"
                   />
 
                   <FormInput
@@ -82,6 +99,10 @@ const SignUp = () => {
                     placeholder="Enter Password"
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
+                    values={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    name="password"
                   />
                   <Button
                     text="Sign In"
