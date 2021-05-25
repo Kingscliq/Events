@@ -16,7 +16,7 @@ import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import axios from "axios";
+import client from '../../../api/api-client'
 
 const SignUp = () => {
   const initialFormState = { first_name: "", email: "", password: "" };
@@ -44,7 +44,7 @@ const SignUp = () => {
             initialValues={initialFormState}
             onSubmit={(data) => {
               console.log(data);
-              axios
+              client
                 .post(
                   "https://confirmaxion-api.herokuapp.com/users/register",
                   data
@@ -55,7 +55,7 @@ const SignUp = () => {
                 .catch((err) => console.log("error", err));
             }}
           >
-            {({ values, handleBlur, handleChange, handleSubmit }) => (
+            {({ values, handleChange, handleSubmit }) => (
               <>
                 <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
@@ -78,7 +78,7 @@ const SignUp = () => {
                     placeholder="Enter Firstname"
                     value={values.first_name}
                     onChange={handleChange}
-                    onBlur={handleBlur}
+                    
                     name="first_name"
                   />
                   <FormInput
@@ -88,7 +88,7 @@ const SignUp = () => {
                     placeholder="Enter Email"
                     values={values.email}
                     onChange={handleChange}
-                    onBlur={handleBlur}
+                    
                     name="email"
                   />
 
@@ -101,7 +101,6 @@ const SignUp = () => {
                     handleClick={handleEyeToggle}
                     values={values.password}
                     onChange={handleChange}
-                    onBlur={handleBlur}
                     name="password"
                   />
                   <Button

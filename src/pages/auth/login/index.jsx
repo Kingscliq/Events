@@ -1,9 +1,10 @@
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import * as Yup from "yup";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
-import axios from "axios";
+import client from "../../../api/api-client";
 import {
   FaEnvelope,
   FaLock,
@@ -44,12 +45,15 @@ const Login = () => {
         <div className="form-parent">
           <Formik
             initialValues={initialFormState}
+            validationSchema={Yup.object({
+              email: Yup.string()
+                .email("Please enter a valid email")
+                .required("You have to enter an email"),
+              password: Yup.string().required("Please enter your password"),
+            })}
             onSubmit={(data) => {
-              axios
-                .post(
-                  "https://confirmaxion-api.herokuapp.com/users/login",
-                  data
-                )
+              client
+                .post("/users/login", data)
                 .then((res) => {
                   console.log(res.headers);
                 })
@@ -75,23 +79,36 @@ const Login = () => {
                   <FormInput
                     type="text"
                     className="textField"
+                    handleBlur={handleBlur}
                     icon={<FaEnvelope />}
                     placeholder="Enter Email"
                     value={values.email}
                     name="email"
                     onChange={handleChange}
                   />
+                  <ErrorMessage name="email">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
                   <FormInput
                     type={eye ? "text" : "password"}
                     className="textField"
                     icon={<FaLock />}
-                    placeholder="Enter Password"
+                    placeholder="Enter Kesh"
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
+                    handleBlur={handleBlur}
                     value={values.password}
                     name="password"
                     onChange={handleChange}
+                    style={{}}
                   />
+                  <ErrorMessage name="password">
+                    {(msg) => (
+                      <div style={{ color: "red", marginBottom: "20px" }}>
+                        {msg}
+                      </div>
+                    )}
+                  </ErrorMessage>
                   <Button
                     text="Sign In"
                     type="submit"

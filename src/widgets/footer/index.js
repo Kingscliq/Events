@@ -13,7 +13,7 @@ const Footer = () => {
             <span className="footer-logo">
               <img src={FooterLogo} alt="logo" />
             </span>
-            <span>&copy; Scuudu 2021 All Rights Reserved</span>
+            <span>&copy; Kesh Union Boys 2021 All Rights Reserved</span>
           </div>
           <div className="footer-grid">
             <ul className="footer-list">
