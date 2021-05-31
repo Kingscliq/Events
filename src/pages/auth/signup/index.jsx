@@ -1,8 +1,9 @@
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
+import * as Yup from "yup";
 import {
   FaEnvelope,
   FaLock,
@@ -16,9 +17,10 @@ import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import client from '../../../api/api-client'
+import { signIn } from "../../../actions/index";
+import { connect } from "react-redux";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const initialFormState = { first_name: "", email: "", password: "" };
   const [eye, setEye] = useState(false);
   const handleEyeToggle = (e) => {
@@ -41,18 +43,19 @@ const SignUp = () => {
       <section className="form-container">
         <div className="form-parent">
           <Formik
+            // Initialise Initial Form Values
             initialValues={initialFormState}
+            // Function for Error message Display
+            validationSchema={Yup.object({
+              email: Yup.string()
+                .email("Please enter a valid email")
+                .required("You have to enter an email"),
+              password: Yup.string().required("Please enter your password"),
+              first_name: Yup.string().required("Please enter your First Name"),
+            })}
+            // Submit Function
             onSubmit={(data) => {
-              console.log(data);
-              client
-                .post(
-                  "https://confirmaxion-api.herokuapp.com/users/register",
-                  data
-                )
-                .then((res) => {
-                  console.log("Data Submitted Successfully", res.data);
-                })
-                .catch((err) => console.log("error", err));
+              props.signIn(data);
             }}
           >
             {({ values, handleChange, handleSubmit }) => (
@@ -78,9 +81,11 @@ const SignUp = () => {
                     placeholder="Enter Firstname"
                     value={values.first_name}
                     onChange={handleChange}
-                    
                     name="first_name"
                   />
+                  <ErrorMessage name="first_name">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
                   <FormInput
                     type="text"
                     className="textField"
@@ -88,9 +93,11 @@ const SignUp = () => {
                     placeholder="Enter Email"
                     values={values.email}
                     onChange={handleChange}
-                    
                     name="email"
                   />
+                  <ErrorMessage name="email">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
 
                   <FormInput
                     type={eye ? "text" : "password"}
@@ -103,6 +110,13 @@ const SignUp = () => {
                     onChange={handleChange}
                     name="password"
                   />
+                  <ErrorMessage name="first_name">
+                    {(msg) => (
+                      <div style={{ color: "red", marginBottom: "10px" }}>
+                        {msg}
+                      </div>
+                    )}
+                  </ErrorMessage>
                   <Button
                     text="Sign In"
                     type="submit"
@@ -133,4 +147,4 @@ const SignUp = () => {
   );
 };
 
-export { SignUp };
+export default connect(null, { signIn })(SignUp);

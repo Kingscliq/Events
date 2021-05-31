@@ -93,7 +93,7 @@ const Login = () => {
                     type={eye ? "text" : "password"}
                     className="textField"
                     icon={<FaLock />}
-                    placeholder="Enter Kesh"
+                    placeholder="Enter Password"
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                     handleBlur={handleBlur}
