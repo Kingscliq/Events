@@ -28,6 +28,8 @@ import FileIcon from "./file-icon.png";
 import PaintpadIcon from "./paintpad-icon.png";
 import PeopleIcon from "./people-icon.png";
 import VideocameraIcon from "./videocamera-icon.png";
+import BackButtonIcon from "./back-button-icon.png";
+import UploadImageIcon from "./upload-image-icon.png";
 
 export {
 	FooterLogo,
@@ -60,4 +62,6 @@ export {
 	PaintpadIcon,
 	PeopleIcon,
 	VideocameraIcon,
+	BackButtonIcon,
+	UploadImageIcon,
 };
