@@ -17,12 +17,15 @@ import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import { signIn } from "../../../actions/index";
+import { signUp } from "../../../actions/index";
 import { connect } from "react-redux";
 
 const SignUp = (props) => {
   const initialFormState = { first_name: "", email: "", password: "" };
   const [eye, setEye] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
+  const [firstNameFocus, setFirstNameFocus] = useState(false);
   const handleEyeToggle = (e) => {
     setEye((prevState) => !prevState);
   };
@@ -55,10 +58,10 @@ const SignUp = (props) => {
             })}
             // Submit Function
             onSubmit={(data) => {
-              props.signIn(data);
+              props.signUp(data);
             }}
           >
-            {({ values, handleChange, handleSubmit }) => (
+            {({ values, handleChange, handleSubmit, errors, touched }) => (
               <>
                 <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
@@ -74,6 +77,16 @@ const SignUp = (props) => {
                       SignIn
                     </span>
                   </p>
+                  {props.regSuccess ? (
+                    <div className="alert alert-success">
+                      {props.regSuccessMsg}
+                    </div>
+                  ) : null}
+                  {props.regFailed ? (
+                    <div className="alert alert-danger">
+                      {props.regFailedMsg}
+                    </div>
+                  ) : null}
                   <FormInput
                     type="text"
                     className="textField"
@@ -82,6 +95,19 @@ const SignUp = (props) => {
                     value={values.first_name}
                     onChange={handleChange}
                     name="first_name"
+                    onBlur={() => setFirstNameFocus(false)}
+                    onFocus={() => setFirstNameFocus(true)}
+                    inputStyle={{
+                      transition: "box-shadow .3s ease-in-out",
+                      boxShadow: firstNameFocus
+                        ? "0 1px 6px rgb(32 33 36 / 28%)"
+                        : "none",
+                      borderColor: firstNameFocus
+                        ? "rgba(223,225,229,0)"
+                        : errors.first_name && touched.first_name
+                        ? "red"
+                        : "#dfe1e5",
+                    }}
                   />
                   <ErrorMessage name="first_name">
                     {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -94,6 +120,19 @@ const SignUp = (props) => {
                     values={values.email}
                     onChange={handleChange}
                     name="email"
+                    onBlur={() => setEmailFocus(false)}
+                    onFocus={() => setEmailFocus(true)}
+                    inputStyle={{
+                      transition: "box-shadow .3s ease-in-out",
+                      boxShadow: emailFocus
+                        ? "0 1px 6px rgb(32 33 36 / 28%)"
+                        : "none",
+                      borderColor: emailFocus
+                        ? "rgba(223,225,229,0)"
+                        : errors.email && touched.email
+                        ? "red"
+                        : "#dfe1e5",
+                    }}
                   />
                   <ErrorMessage name="email">
                     {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -109,6 +148,19 @@ const SignUp = (props) => {
                     values={values.password}
                     onChange={handleChange}
                     name="password"
+                    onBlur={() => setPasswordFocus(false)}
+                    onFocus={() => setPasswordFocus(true)}
+                    inputStyle={{
+                      transition: "box-shadow .3s ease-in-out",
+                      boxShadow: passwordFocus
+                        ? "0 1px 6px rgb(32 33 36 / 28%)"
+                        : "none",
+                      borderColor: passwordFocus
+                        ? "rgba(223,225,229,0)"
+                        : errors.password && touched.password
+                        ? "red"
+                        : "#dfe1e5",
+                    }}
                   />
                   <ErrorMessage name="first_name">
                     {(msg) => (
@@ -118,7 +170,7 @@ const SignUp = (props) => {
                     )}
                   </ErrorMessage>
                   <Button
-                    text="Sign In"
+                    text="Sign Up"
                     type="submit"
                     className="btn btn-primary"
                   />
@@ -146,5 +198,12 @@ const SignUp = (props) => {
     </>
   );
 };
-
-export default connect(null, { signIn })(SignUp);
+const mapStateToProps = (state) => {
+  return {
+    regSuccessMsg: state.user.regSuccessMsg,
+    regSuccess: state.user.registrationSuccess,
+    regFailed: state.user.registrationFailed,
+    regFailedMsg: state.user.regFailedMsg,
+  };
+};
+export default connect(mapStateToProps, { signUp })(SignUp);

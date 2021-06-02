@@ -4,7 +4,7 @@ import BrowseEvents from "../pages/app/browse-events";
 import EventPreview from "../pages/app/browse-events/event-preview";
 import { HostEvent } from "../pages/app/host-event";
 import { LandingPage } from "../pages/app/landing-page";
-import { Login } from "../pages/auth/login";
+import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/signup";
 
 const Routes = () => {

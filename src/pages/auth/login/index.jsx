@@ -2,9 +2,11 @@ import { Formik, ErrorMessage } from "formik";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { Input } from "../../../components/input";
+// import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
-import client from "../../../api/api-client";
+// import client from "../../../api/api-client";
+import { connect } from "react-redux";
+import { signIn } from "../../../actions/";
 import {
   FaEnvelope,
   FaLock,
@@ -18,12 +20,13 @@ import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
 
-const Login = () => {
+const Login = (props) => {
   const initialFormState = { email: "", password: "" };
 
   //  HAndle Password Visibility
   const [eye, setEye] = useState(false);
-
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
   const handleEyeToggle = (e) => {
     setEye((prevState) => !prevState);
   };
@@ -52,15 +55,23 @@ const Login = () => {
               password: Yup.string().required("Please enter your password"),
             })}
             onSubmit={(data) => {
-              client
-                .post("/users/login", data)
-                .then((res) => {
-                  console.log(res.headers);
-                })
-                .catch((err) => console.log(err));
+              // client
+              //   .post("/users/login", data)
+              //   .then((res) => {
+              //     console.log(res.headers);
+              //   })
+              //   .catch((err) => console.log(err));
+              props.signIn(data);
             }}
           >
-            {({ values, handleBlur, handleChange, handleSubmit }) => (
+            {({
+              values,
+              handleBlur,
+              handleChange,
+              handleSubmit,
+              errors,
+              touched,
+            }) => (
               <>
                 <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
@@ -85,6 +96,19 @@ const Login = () => {
                     value={values.email}
                     name="email"
                     onChange={handleChange}
+                    onBlur={() => setEmailFocus(false)}
+                    onFocus={() => setEmailFocus(true)}
+                    inputStyle={{
+                      transition: "box-shadow .3s ease-in-out",
+                      boxShadow: emailFocus
+                        ? "0 1px 6px rgb(32 33 36 / 28%)"
+                        : "none",
+                      borderColor: emailFocus
+                        ? "rgba(223,225,229,0)"
+                        : errors.email && touched.email
+                        ? "red"
+                        : "#dfe1e5",
+                    }}
                   />
                   <ErrorMessage name="email">
                     {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -97,10 +121,22 @@ const Login = () => {
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                     handleBlur={handleBlur}
+                    onBlur={() => setPasswordFocus(false)}
+                    onFocus={() => setPasswordFocus(true)}
                     value={values.password}
                     name="password"
                     onChange={handleChange}
-                    style={{}}
+                    inputStyle={{
+                      transition: "box-shadow .3s ease-in-out",
+                      boxShadow: passwordFocus
+                        ? "0 1px 6px rgb(32 33 36 / 28%)"
+                        : "none",
+                      borderColor: passwordFocus
+                        ? "rgba(223,225,229,0)"
+                        : errors.password && touched.password
+                        ? "red"
+                        : "#dfe1e5",
+                    }}
                   />
                   <ErrorMessage name="password">
                     {(msg) => (
@@ -134,9 +170,8 @@ const Login = () => {
         </div>
       </section>
       <Footer />
-      Form
     </>
   );
 };
 
-export { Login };
+export default connect(null, { signIn })(Login);
