@@ -17,7 +17,7 @@ import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import { signIn } from "../../../actions/index";
+import { signIn } from "../../../store/actions/index";
 import { connect } from "react-redux";
 
 const SignUp = (props) => {
