@@ -6,6 +6,7 @@ import { HostEvent } from "../pages/app/host-event";
 import { LandingPage } from "../pages/app/landing-page";
 import { Login } from "../pages/auth/login";
 import SignUp from "../pages/auth/signup";
+import EmailVerify from "../pages/auth/email-verify";
 
 const Routes = () => {
   return (
@@ -17,6 +18,7 @@ const Routes = () => {
         <Route exact path="/browse-events" component={BrowseEvents} />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/host-event" component={HostEvent} />
+        <Route exact path="/verify-email" component={EmailVerify} />
       </Switch>
     </Router>
   );
