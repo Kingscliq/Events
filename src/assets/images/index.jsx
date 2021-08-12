@@ -30,7 +30,8 @@ import PeopleIcon from "./people-icon.png";
 import VideocameraIcon from "./videocamera-icon.png";
 import BackButtonIcon from "./back-button-icon.png";
 import UploadImageIcon from "./upload-image-icon.png";
-
+import Loader from "./loader.svg"
+import lightLoader from "./light-loader.svg"
 export {
 	FooterLogo,
 	NavLogo,
@@ -64,4 +65,6 @@ export {
 	VideocameraIcon,
 	BackButtonIcon,
 	UploadImageIcon,
+	Loader,
+	lightLoader
 };

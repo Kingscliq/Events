@@ -9,11 +9,14 @@ import { createStore, applyMiddleware } from "redux";
 import reducers from "./store/reducers";
 import thunk from "redux-thunk";
 
-const store = createStore(reducers, applyMiddleware(thunk));
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter> 
         <App />
       </BrowserRouter>
     </Provider>

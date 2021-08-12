@@ -1,9 +1,10 @@
 import { Formik, ErrorMessage } from "formik";
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
 import * as Yup from "yup";
+import { lightLoader, Loader } from "../../../assets/images";
 import {
   FaEnvelope,
   FaLock,
@@ -11,24 +12,31 @@ import {
   FaUserAlt,
   FaEyeSlash,
   FaGoogle,
+  FaUser,
 } from "react-icons/fa";
 import { Button } from "../../../components/button";
 import "../login/login.css";
 import { EventChairs } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import { signIn } from "../../../store/actions/index";
+import { register } from "../../../store/actions/index";
 import { connect } from "react-redux";
 
-const SignUp = (props) => {
+const SignUp = ({ user, loading, showVerificationNotice }) => {
   const initialFormState = { first_name: "", email: "", password: "" };
   const [eye, setEye] = useState(false);
-  const handleEyeToggle = (e) => {
-    setEye((prevState) => !prevState);
+  const handleEyeToggle = e => {
+    setEye(prevState => !prevState);
   };
 
   const history = useHistory();
 
+  useEffect(() => {
+    if (showVerificationNotice) {
+      // console.log(showVerificationNotice)
+      history.push("/verify-email");
+    }
+  }, [showVerificationNotice]);
   return (
     <>
       <NavBar
@@ -36,10 +44,11 @@ const SignUp = (props) => {
         firstLink={"/"}
         secondItem={"Events"}
         secondLink={"/browse-events"}
-        profileLink={`www.yahoo.com`}
-        profile={"Profile"}
+        profile={user ? `${user.first_name}` : null}
+        profileIcon={user ? <FaUser /> : null}
         button={<Button text={"Sign In"} className="btn" />}
       />
+
       <section className="form-container">
         <div className="form-parent">
           <Formik
@@ -54,8 +63,8 @@ const SignUp = (props) => {
               first_name: Yup.string().required("Please enter your First Name"),
             })}
             // Submit Function
-            onSubmit={(data) => {
-              props.signIn(data);
+            onSubmit={data => {
+              register(data);
             }}
           >
             {({ values, handleChange, handleSubmit }) => (
@@ -84,7 +93,7 @@ const SignUp = (props) => {
                     name="first_name"
                   />
                   <ErrorMessage name="first_name">
-                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    {msg => <div style={{ color: "red" }}>{msg}</div>}
                   </ErrorMessage>
                   <FormInput
                     type="text"
@@ -96,7 +105,7 @@ const SignUp = (props) => {
                     name="email"
                   />
                   <ErrorMessage name="email">
-                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    {msg => <div style={{ color: "red" }}>{msg}</div>}
                   </ErrorMessage>
 
                   <FormInput
@@ -111,16 +120,23 @@ const SignUp = (props) => {
                     name="password"
                   />
                   <ErrorMessage name="first_name">
-                    {(msg) => (
+                    {msg => (
                       <div style={{ color: "red", marginBottom: "10px" }}>
                         {msg}
                       </div>
                     )}
                   </ErrorMessage>
                   <Button
-                    text="Sign In"
+                    text={
+                      loading ? (
+                        <img src={lightLoader} width="50" height="50" />
+                      ) : (
+                        "Sign Up"
+                      )
+                    }
                     type="submit"
                     className="btn btn-primary"
+                    disabled={loading ? "disabled" : false}
                   />
                   <p className="form-para">
                     <input type="checkbox" />
@@ -128,7 +144,7 @@ const SignUp = (props) => {
                   </p>
                   <div style={{ textAlign: "center" }}>Or</div>
                   <Button
-                    text="Sign Up With Google"
+                    text={"Sign Up With Google"}
                     type="submit"
                     className="btn btn-light"
                     icon={<FaGoogle />}
@@ -147,4 +163,9 @@ const SignUp = (props) => {
   );
 };
 
-export default connect(null, { signIn })(SignUp);
+const mapStateToProps = state => ({
+  user: state.auth.user,
+  loading: state.auth.loading,
+  showVerificationNotice: state.auth.showVerificationNotice,
+});
+export default connect(mapStateToProps, { register })(SignUp);

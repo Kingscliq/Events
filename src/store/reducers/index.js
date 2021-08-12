@@ -1,5 +1,8 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from "redux";
+import auth from "./auth";
+import alert from "./alert";
 
 export default combineReducers({
-    clickMe: () => 'hello World'
-})
+  auth,
+  alert,
+});
