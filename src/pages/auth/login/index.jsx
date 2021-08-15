@@ -1,38 +1,49 @@
 import { Formik, ErrorMessage } from "formik";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 // import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
 // import client from "../../../api/api-client";
 import { connect } from "react-redux";
-import { signIn } from "../../../actions/";
 import {
   FaEnvelope,
   FaLock,
   FaEye,
   FaEyeSlash,
   FaGoogle,
+  FaUser,
 } from "react-icons/fa";
 import { Button } from "../../../components/button";
 import "./login.css";
 import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
+// import { connect } from "react-redux";
+import { signIn } from "../../../store/actions/index";
+import { lightLoader } from "../../../assets/images";
 
-const Login = (props) => {
+const Login = ({ signIn, loading, user }) => {
   const initialFormState = { email: "", password: "" };
 
-  //  HAndle Password Visibility
+  // Handle Password Visibility
   const [eye, setEye] = useState(false);
-  const [emailFocus, setEmailFocus] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
-  const handleEyeToggle = (e) => {
-    setEye((prevState) => !prevState);
+
+  // Get User from Local Storage
+  // const [user, setUser] = useState();
+
+  const handleEyeToggle = e => {
+    setEye(prevState => !prevState);
   };
 
   // import UseHistory for Routing
   const history = useHistory();
+  // const fetchUser = () => {
+  //   setUser(JSON.parse(localStorage.getItem("user")));
+  // };
+  useEffect(() => {
+    if (user) history.push("/host-event");
+  }, [user]);
   return (
     <>
       <NavBar
@@ -40,9 +51,9 @@ const Login = (props) => {
         firstLink={"/"}
         secondItem={"Events"}
         secondLink={"/browse-events"}
-        profileLink={`www.yahoo.com`}
-        profile={"Profile"}
-        button={<Button text={"Sign In"} className="btn" />}
+        profile={user ? `${user.first_name}` : null}
+        profileIcon={user ? <FaUser /> : null}
+        button={user ? null : <Button text={"Sign In"} className="btn" />}
       />
       <section className="form-container">
         <div className="form-parent">
@@ -54,14 +65,8 @@ const Login = (props) => {
                 .required("You have to enter an email"),
               password: Yup.string().required("Please enter your password"),
             })}
-            onSubmit={(data) => {
-              // client
-              //   .post("/users/login", data)
-              //   .then((res) => {
-              //     console.log(res.headers);
-              //   })
-              //   .catch((err) => console.log(err));
-              props.signIn(data);
+            onSubmit={data => {
+              signIn(data);
             }}
           >
             {({
@@ -111,7 +116,7 @@ const Login = (props) => {
                     }}
                   />
                   <ErrorMessage name="email">
-                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    {msg => <div style={{ color: "red" }}>{msg}</div>}
                   </ErrorMessage>
                   <FormInput
                     type={eye ? "text" : "password"}
@@ -126,40 +131,36 @@ const Login = (props) => {
                     value={values.password}
                     name="password"
                     onChange={handleChange}
-                    inputStyle={{
-                      transition: "box-shadow .3s ease-in-out",
-                      boxShadow: passwordFocus
-                        ? "0 1px 6px rgb(32 33 36 / 28%)"
-                        : "none",
-                      borderColor: passwordFocus
-                        ? "rgba(223,225,229,0)"
-                        : errors.password && touched.password
-                        ? "red"
-                        : "#dfe1e5",
-                    }}
                   />
                   <ErrorMessage name="password">
-                    {(msg) => (
+                    {msg => (
                       <div style={{ color: "red", marginBottom: "20px" }}>
                         {msg}
                       </div>
                     )}
                   </ErrorMessage>
                   <Button
-                    text="Sign In"
+                    text={
+                      loading ? (
+                        <img src={lightLoader} width="50" height="50" />
+                      ) : (
+                        "Login"
+                      )
+                    }
                     type="submit"
                     className="btn btn-primary"
+                    disabled={loading ? "disabled" : false}
                   />
                   <p className="form-para">
                     &nbsp;&nbsp; <span>Forgot Password</span>
                   </p>
                   <div style={{ textAlign: "center" }}>OR</div>
-                  <Button
+                  {/* <Button
                     text="Sign In With Google"
                     type="submit"
                     className="btn btn-light"
                     icon={<FaGoogle />}
-                  />
+                  /> */}
                 </form>
               </>
             )}
@@ -174,4 +175,8 @@ const Login = (props) => {
   );
 };
 
-export default connect(null, { signIn })(Login);
+const mapStateToProps = state => ({
+  loading: state.auth.loading,
+  user: state.auth.user,
+});
+export default connect(mapStateToProps, { signIn })(Login);

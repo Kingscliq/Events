@@ -1,0 +1,13 @@
+if the user clicks on the login button, 
+a request is sent to the server for an access token
+once the token arrives,
+store token in local storage
+get the token from local storage
+make another request to verify the access token,
+//
+if token is valid ? send user details : redirect the user to the login page
+if user details ? 
+store the details to the local storage and redirect the user to the homepage
+//
+i will always get the user from the local storage and 
+store it in state to be accessed globally by the entire application routes

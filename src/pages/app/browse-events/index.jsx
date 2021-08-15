@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaUser } from "react-icons/fa";
 import { Karioke4, Karioke2, LadyWithGlasses } from "../../../assets/images";
 import { Button } from "../../../components/button";
 import { EventCard } from "../../../components/event-card";
@@ -8,9 +8,17 @@ import { Input } from "../../../components/input";
 import Search from "../../../components/search";
 import "./browse-events.css";
 import { NavBar } from "../../../widgets/nav-bar";
+import { connect } from "react-redux";
+import { useEffect } from "react";
 
-const BrowseEvents = () => {
+const BrowseEvents = ({ user }) => {
   const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push("/signin");
+    }
+  }, [user]);
   return (
     <>
       <NavBar
@@ -18,14 +26,16 @@ const BrowseEvents = () => {
         firstLink={"/"}
         secondItem={"Events"}
         secondLink={"/browse-events"}
-        profileLink={`www.yahoo.com`}
-        profile={"Profile"}
+        profile={user ? `${user.first_name}` : null}
+        profileIcon={user ? <FaUser /> : null}
         button={
-          <Button
-            text={"Sign In"}
-            className="btn"
-            onClick={() => history.push("/signin")}
-          />
+          user ? null : (
+            <Button
+              text={"Sign In"}
+              className="btn"
+              onClick={() => history.push("/signin")}
+            />
+          )
         }
       />
       <section>
@@ -104,5 +114,7 @@ const BrowseEvents = () => {
     </>
   );
 };
-
-export default BrowseEvents;
+const mapStateToProps = state => ({
+  user: state.auth.user,
+});
+export default connect(mapStateToProps)(BrowseEvents);

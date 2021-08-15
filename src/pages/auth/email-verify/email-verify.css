@@ -1,0 +1,31 @@
+.email-verify-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #eee;
+}
+.verify-box {
+  height: 500px;
+  width: 500px;
+  padding: 30px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  line-height: 60px;
+}
+.verify-box .line {
+  width: 300px;
+  background: var(--primary);
+  height: 4px;
+}
+.verify-box p {
+  line-height: 20px;
+  margin: 30px 0;
+}
