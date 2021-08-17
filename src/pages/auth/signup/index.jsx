@@ -25,6 +25,9 @@ import { connect } from "react-redux";
 const SignUp = ({ user, loading, showVerificationNotice }) => {
   const initialFormState = { first_name: "", email: "", password: "" };
   const [eye, setEye] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
+  const [firstNameFocus, setFirstNameFocus] = useState(false);
   const handleEyeToggle = e => {
     setEye(prevState => !prevState);
   };
@@ -83,7 +86,7 @@ const SignUp = ({ user, loading, showVerificationNotice }) => {
                       SignIn
                     </span>
                   </p>
-                  {props.regSuccess ? (
+                  {/* {props.regSuccess ? (
                     <div className="alert alert-success">
                       {props.regSuccessMsg}
                     </div>
@@ -92,7 +95,7 @@ const SignUp = ({ user, loading, showVerificationNotice }) => {
                     <div className="alert alert-danger">
                       {props.regFailedMsg}
                     </div>
-                  ) : null}
+                  ) : null} */}
                   <FormInput
                     type="text"
                     className="textField"
@@ -101,8 +104,6 @@ const SignUp = ({ user, loading, showVerificationNotice }) => {
                     value={values.first_name}
                     onChange={handleChange}
                     name="first_name"
-                    onBlur={() => setFirstNameFocus(false)}
-                    onFocus={() => setFirstNameFocus(true)}
                     inputStyle={{
                       transition: "box-shadow .3s ease-in-out",
                       boxShadow: firstNameFocus
@@ -126,8 +127,6 @@ const SignUp = ({ user, loading, showVerificationNotice }) => {
                     values={values.email}
                     onChange={handleChange}
                     name="email"
-                    onBlur={() => setEmailFocus(false)}
-                    onFocus={() => setEmailFocus(true)}
                     inputStyle={{
                       transition: "box-shadow .3s ease-in-out",
                       boxShadow: emailFocus
@@ -154,8 +153,6 @@ const SignUp = ({ user, loading, showVerificationNotice }) => {
                     values={values.password}
                     onChange={handleChange}
                     name="password"
-                    onBlur={() => setPasswordFocus(false)}
-                    onFocus={() => setPasswordFocus(true)}
                     inputStyle={{
                       transition: "box-shadow .3s ease-in-out",
                       boxShadow: passwordFocus

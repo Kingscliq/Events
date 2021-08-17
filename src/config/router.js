@@ -14,6 +14,7 @@ import Login from "../pages/auth/login";
 import SignUp from "../pages/auth/signup";
 import EmailVerify from "../pages/auth/email-verify";
 import ErrorPage from "../pages/app/error-page";
+import Alerts from "../components/alerts";
 
 const Logout = () => {
   localStorage.clear();
@@ -23,6 +24,7 @@ const Logout = () => {
 const Routes = () => {
   return (
     <Router>
+      <Alerts />
       <Switch>
         <Route exact path="/signin" component={Login} />
         <Route exact path="/signup" component={SignUp} />

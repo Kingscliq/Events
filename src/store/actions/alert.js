@@ -1,17 +1,19 @@
 import { SET_ALERT, CLEAR_ALERT } from "./types";
-import {v4 as uuid } from 'uuid'
-
+import { v4 as uuid } from "uuid";
 
 // set Alert action creators
-export const setAlert = (msg, type) => (dispatch) =>{
-  const id = uuid()
+export const setAlert = (msg, type) => dispatch => {
+  console.log(msg);
+  const id = uuid();
   dispatch({
-  type: SET_ALERT,
-  payload: {msg, type, id}
-})};
+    type: SET_ALERT,
+    payload: { msg, type, id },
+  });
+};
 
 // remove alert action creators
-export const clearAlert = (dispatch) => {
+export const clearAlert = () => dispatch => {
   dispatch({
-  type: CLEAR_ALERT,
-})};
+    type: CLEAR_ALERT,
+  });
+};

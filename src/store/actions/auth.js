@@ -43,8 +43,11 @@ export const login = formData => dispatch => {
     dispatch({ type: LOGIN_SUCCESS, payload: { user: res.data } });
     dispatch({ type: SET_ALERT, payload: "Login SuccessFul" });
   } catch (error) {
+    console.log(error.response.data.message);
+    const msg = await error.response.data.message;
+    const type = "alert-danger";
     dispatch({ type: LOGIN_FAIL });
-    dispatch({ type: SET_ALERT, payload: error.response.msg });
+    dispatch({ type: SET_ALERT, msg, type });
   }
 };
 

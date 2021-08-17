@@ -101,19 +101,17 @@ const Login = ({ signIn, loading, user }) => {
                     value={values.email}
                     name="email"
                     onChange={handleChange}
-                    onBlur={() => setEmailFocus(false)}
-                    onFocus={() => setEmailFocus(true)}
-                    inputStyle={{
-                      transition: "box-shadow .3s ease-in-out",
-                      boxShadow: emailFocus
-                        ? "0 1px 6px rgb(32 33 36 / 28%)"
-                        : "none",
-                      borderColor: emailFocus
-                        ? "rgba(223,225,229,0)"
-                        : errors.email && touched.email
-                        ? "red"
-                        : "#dfe1e5",
-                    }}
+                    // inputStyle={{
+                    //   transition: "box-shadow .3s ease-in-out",
+                    //   boxShadow: emailFocus
+                    //     ? "0 1px 6px rgb(32 33 36 / 28%)"
+                    //     : "none",
+                    //   borderColor: emailFocus
+                    //     ? "rgba(223,225,229,0)"
+                    //     : errors.email && touched.email
+                    //     ? "red"
+                    //     : "#dfe1e5",
+                    // }}
                   />
                   <ErrorMessage name="email">
                     {msg => <div style={{ color: "red" }}>{msg}</div>}
@@ -126,8 +124,6 @@ const Login = ({ signIn, loading, user }) => {
                     rightIcon={eye ? <FaEye /> : <FaEyeSlash />}
                     handleClick={handleEyeToggle}
                     handleBlur={handleBlur}
-                    onBlur={() => setPasswordFocus(false)}
-                    onFocus={() => setPasswordFocus(true)}
                     value={values.password}
                     name="password"
                     onChange={handleChange}
