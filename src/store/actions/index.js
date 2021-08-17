@@ -20,12 +20,15 @@ export const register = data => async dispatch => {
     console.log(res.data);
     dispatch({ type: REGISTER_SUCCESS });
     dispatch({ type: SHOW_VERIFICATION_NOTICE });
-    setAlert('Registration Successful', 'alert-success');
-    setTimeout(clearAlert(), 5000);
+    dispatch(setAlert('Registration Successful', 'alert-success'));
+    dispatch(setTimeout(clearAlert(), 5000));
   } catch (err) {
-    dispatch({ type: CLEAR_LOADING });
     console.log(err.response);
-    setAlert('Sorry! There was an error registering User', 'alert-danger');
+    // console.log(err.response.data.errors[0]);
+    const msg = err.response.data.errors.map(error => error.email);
+    console.log(msg);
+    dispatch(setAlert(msg, 'alert-danger'));
+    dispatch({ type: CLEAR_LOADING });
   }
 };
 
@@ -48,23 +51,24 @@ export const signIn = data => async dispatch => {
       dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
     }
   } catch (error) {
-    console.log(error.response);
-    if (!error.response) {
-      dispatch({ type: LOGIN_FAIL });
-      const msg = 'Login Failed, Check your Internet connection';
-      const type = 'alert-danger';
-      setAlert(msg, type);
-    } else {
-      console.log(error.response.data.message);
+    if (error.response) {
+      // setTimeout(() => dispatch(clearAlert()), 5000);console.log(error.response.data.message);
       const msg = await error.response.data.message;
       const type = 'alert-danger';
       dispatch({ type: LOGIN_FAIL });
       // dispatch({ type: SET_ALERT, msg, type });
-      setAlert(msg, type);
+      dispatch(setAlert(error.response.data.message, 'alert-danger'));
+      localStorage.clear();
     }
-
+    // } else {
+    //   const msg = 'Login Failed, Check your Internet connection';
+    //   const type = 'alert-danger';
+    //   dispatch(setAlert(msg, type));
+    //   console.log('error due to network connection');
+    //   dispatch({ type: LOGIN_FAIL });
+    // }
+  } finally {
     dispatch({ type: CLEAR_LOADING });
-    localStorage.clear();
   }
 };
 

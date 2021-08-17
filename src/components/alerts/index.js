@@ -8,9 +8,6 @@ import { connect } from "react-redux";
 import "./alerts.css";
 
 const Alert = ({ alerts }) => {
-  React.useEffect(() => {
-    console.log(alerts);
-  }, [alerts]);
   return (
     <TransitionGroup className="todo-list">
       {alerts.length > 0 &&
@@ -25,7 +22,7 @@ const Alert = ({ alerts }) => {
                     <RiErrorWarningFill size={25} />
                   )}
                 </div>
-                <p>{alerts.msg}</p>
+                <p style={{ fontSize: "12px" }}>{alerts.msg}</p>
                 <div
                   className="toast-close"
                   onClick={() => {
