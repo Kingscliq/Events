@@ -52,18 +52,20 @@ export const signIn = data => async dispatch => {
       dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem("user")) });
     }
   } catch (error) {
-    console.log(error.response);
     if (!error.response) {
       const msg = "Login Failed, Check your Internet connection";
       const type = "alert-danger";
+      dispatch(setAlert(msg, type));
+      console.log("error due to network connection");
       dispatch({ type: LOGIN_FAIL });
+      setTimeout(() => dispatch(clearAlert()), 5000);
     } else {
       console.log(error.response.data.message);
       const msg = await error.response.data.message;
       const type = "alert-danger";
       dispatch({ type: LOGIN_FAIL });
       // dispatch({ type: SET_ALERT, msg, type });
-      setAlert(error.response.data.message, "alert-danger");
+      dispatch(setAlert(error.response.data.message, "alert-danger"));
     }
 
     dispatch({ type: CLEAR_LOADING });
