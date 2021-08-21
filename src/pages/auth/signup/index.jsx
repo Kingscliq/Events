@@ -22,7 +22,7 @@ import FormInput from '../../../components/form-input';
 import { register } from '../../../store/actions/index';
 import { connect } from 'react-redux';
 
-const SignUp = ({ user, loading, showVerificationNotice, register }) => {
+const SignUp = ({ user, loading, isAuthenticated, register }) => {
   const initialFormState = { first_name: '', email: '', password: '' };
   const [eye, setEye] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
@@ -35,11 +35,8 @@ const SignUp = ({ user, loading, showVerificationNotice, register }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (showVerificationNotice) {
-      // console.log(showVerificationNotice)
-      history.push('/verify-email');
-    }
-  }, [showVerificationNotice]);
+    if (user) history.push("/browse-events");
+  }, [user]);
   return (
     <>
       <NavBar
@@ -214,5 +211,6 @@ const mapStateToProps = state => ({
   user: state.auth.user,
   loading: state.auth.loading,
   showVerificationNotice: state.auth.showVerificationNotice,
+  isAuthenticated: state.auth.isAuthenticated
 });
 export default connect(mapStateToProps, { register })(SignUp);

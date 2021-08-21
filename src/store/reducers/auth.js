@@ -22,14 +22,15 @@ export default (state = initialState, action) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        isAuthenticated: false,
+        isAuthenticated: true,
+        user: action.payload,
         loading: false,
-        setVerificationNotice: true,
       };
     case REGISTER_FAIL:
       return {
         ...state,
         isAuthenticated: false,
+        user: null,
         loading: false,
       };
     case LOGIN_SUCCESS:

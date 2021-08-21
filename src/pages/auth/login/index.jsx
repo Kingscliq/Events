@@ -42,7 +42,7 @@ const Login = ({ signIn, loading, user }) => {
   //   setUser(JSON.parse(localStorage.getItem("user")));
   // };
   useEffect(() => {
-    if (user) history.push("/host-event");
+    if (user) history.push("/browse-events");
   }, [user]);
   return (
     <>

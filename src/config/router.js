@@ -24,7 +24,7 @@ const Logout = () => {
 const Routes = () => {
   return (
     <Router>
-      <Alerts />
+      {/* <Alerts /> */}
       <Switch>
         <Route exact path="/signin" component={Login} />
         <Route exact path="/signup" component={SignUp} />

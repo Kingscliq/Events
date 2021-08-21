@@ -18,16 +18,23 @@ export const register = data => async dispatch => {
     const res = await client.post('users/register', data);
     console.log('Registration Successful');
     console.log(res.data);
-    dispatch({ type: REGISTER_SUCCESS });
-    dispatch({ type: SHOW_VERIFICATION_NOTICE });
-    dispatch(setAlert('Registration Successful', 'alert-success'));
-    dispatch(setTimeout(clearAlert(), 5000));
+    localStorage.setItem("token", JSON.stringify(res.data.token));
+    localStorage.setItem("user", JSON.stringify(res.data.message));
+    localStorage.setItem("isAuthenticated", true);
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: JSON.parse(localStorage.getItem("user")),
+    });
+    dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem("user")) });
+    // dispatch({ type: SHOW_VERIFICATION_NOTICE });
+    // dispatch(setAlert('Registration Successful', 'alert-success'));
+    // dispatch(setTimeout(clearAlert(), 5000));
   } catch (err) {
     console.log(err.response);
     // console.log(err.response.data.errors[0]);
-    const msg = err.response.data.errors.map(error => error.email);
-    console.log(msg);
-    dispatch(setAlert(msg, 'alert-danger'));
+    
+    //console.log(msg);
+    dispatch(setAlert('alert-danger'));
     dispatch({ type: CLEAR_LOADING });
   }
 };
@@ -38,8 +45,8 @@ export const signIn = data => async dispatch => {
   try {
     const res = await client.post('/users/login', data);
     if (res.data.success) {
-      console.log(res.headers);
-      localStorage.setItem('token', JSON.stringify(res.headers.authorization));
+      console.log(res.data);
+      localStorage.setItem('token', JSON.stringify(res.data.token));
       localStorage.setItem('user', JSON.stringify(res.data.user));
       localStorage.setItem('isAuthenticated', true);
       console.log(res.data);

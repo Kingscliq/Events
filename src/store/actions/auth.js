@@ -13,7 +13,7 @@ import AuthService from "../../services/auth.service";
 // Register Actions
 export const register = formData => dispatch => {
   try {
-    const res = await AuthService.register(formData);
+    const res = AuthService.register(formData);
 
     dispatch({ type: REGISTER_SUCCESS });
     dispatch({
@@ -39,12 +39,12 @@ export const register = formData => dispatch => {
 // Login Actions
 export const login = formData => dispatch => {
   try {
-    const res = await AuthService.login(formData);
+    const res = AuthService.login(formData);
     dispatch({ type: LOGIN_SUCCESS, payload: { user: res.data } });
     dispatch({ type: SET_ALERT, payload: "Login SuccessFul" });
   } catch (error) {
     console.log(error.response.data.message);
-    const msg = await error.response.data.message;
+    const msg =  error.response.data.message;
     const type = "alert-danger";
     dispatch({ type: LOGIN_FAIL });
     dispatch({ type: SET_ALERT, msg, type });
