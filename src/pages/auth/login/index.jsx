@@ -2,9 +2,10 @@ import { Formik, ErrorMessage } from "formik";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { Input } from "../../../components/input";
+// import { Input } from "../../../components/input";
 import { NavBar } from "../../../widgets/nav-bar";
-import client from "../../../api/api-client";
+// import client from "../../../api/api-client";
+import { connect } from "react-redux";
 import {
   FaEnvelope,
   FaLock,
@@ -18,7 +19,7 @@ import "./login.css";
 import { SmilingLady } from "../../../assets/images";
 import { Footer } from "../../../widgets/footer";
 import FormInput from "../../../components/form-input";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { signIn } from "../../../store/actions/index";
 import { lightLoader } from "../../../assets/images";
 
@@ -41,7 +42,7 @@ const Login = ({ signIn, loading, user }) => {
   //   setUser(JSON.parse(localStorage.getItem("user")));
   // };
   useEffect(() => {
-    if (user) history.push("/host-event");
+    if (user) history.push("/browse-events");
   }, [user]);
   return (
     <>
@@ -68,7 +69,14 @@ const Login = ({ signIn, loading, user }) => {
               signIn(data);
             }}
           >
-            {({ values, handleBlur, handleChange, handleSubmit }) => (
+            {({
+              values,
+              handleBlur,
+              handleChange,
+              handleSubmit,
+              errors,
+              touched,
+            }) => (
               <>
                 <form className="card" onSubmit={handleSubmit}>
                   <header className="form-header">
@@ -93,6 +101,17 @@ const Login = ({ signIn, loading, user }) => {
                     value={values.email}
                     name="email"
                     onChange={handleChange}
+                    // inputStyle={{
+                    //   transition: "box-shadow .3s ease-in-out",
+                    //   boxShadow: emailFocus
+                    //     ? "0 1px 6px rgb(32 33 36 / 28%)"
+                    //     : "none",
+                    //   borderColor: emailFocus
+                    //     ? "rgba(223,225,229,0)"
+                    //     : errors.email && touched.email
+                    //     ? "red"
+                    //     : "#dfe1e5",
+                    // }}
                   />
                   <ErrorMessage name="email">
                     {msg => <div style={{ color: "red" }}>{msg}</div>}

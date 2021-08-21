@@ -2,31 +2,31 @@ import React from "react";
 import { FaCheckCircle, FaTimes } from "react-icons/fa";
 import { RiErrorWarningFill } from "react-icons/ri";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { clearAlert } from "../../store/actions/alert";
 // import AlertContext from "../../context/alerts/AlertContext";
 import { connect } from "react-redux";
-import './alert.css'
+import "./alerts.css";
 
-const Alert = ({alerts}) => {
- 
+const Alert = ({ alerts }) => {
   return (
-      <TransitionGroup className="todo-list">
+    <TransitionGroup className="todo-list">
       {alerts.length > 0 &&
-      alerts.map((alert) => {
+        alerts.map(alerts => {
           return (
             <CSSTransition classNames="item" timeout={1000}>
-              <div className={`alert-box  alert-success`}>
+              <div className={`alert-box ${alerts.type}`}>
                 <div>
-                  {alert.type === "alert-success" ? (
+                  {alerts.type === "alert-success" ? (
                     <FaCheckCircle size={25} />
                   ) : (
                     <RiErrorWarningFill size={25} />
                   )}
                 </div>
-                <p>{alert.msg}</p>
+                <p style={{ fontSize: "12px" }}>{alerts.msg}</p>
                 <div
                   className="toast-close"
                   onClick={() => {
-                    removeAlert();
+                    clearAlert(alerts.id);
                     console.log("alert Removed");
                   }}
                 >
@@ -35,13 +35,12 @@ const Alert = ({alerts}) => {
               </div>
             </CSSTransition>
           );
-     })}
+        })}
     </TransitionGroup>
   );
 };
 
-
-const mapStateToProps=(state) => ({
-    alerts: state.alerts
-})
+const mapStateToProps = state => ({
+  alerts: state.alert,
+});
 export default connect(mapStateToProps)(Alert);

@@ -11,7 +11,6 @@ const Input = ({
   rightIcon,
   handleClick,
   onFocus,
-  inputStyle,
   onBlur,
   name,
   ...props
@@ -24,7 +23,6 @@ const Input = ({
         onFocus={onFocus}
         onBlur={onBlur}
         placeholder={placeholder}
-        style={inputStyle}
         className={className}
         onChange={onChange}
         name={name}

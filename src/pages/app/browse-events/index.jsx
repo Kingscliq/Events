@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FaSearch, FaUser } from "react-icons/fa";
 import { Karioke4, Karioke2, LadyWithGlasses } from "../../../assets/images";
@@ -11,14 +11,20 @@ import { NavBar } from "../../../widgets/nav-bar";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 
-const BrowseEvents = ({ user }) => {
+const BrowseEvents = () => {
+  const [user, setUser] = useState("");
   const history = useHistory();
 
   useEffect(() => {
-    if (!user) {
+    const isAuthenticated = JSON.parse(localStorage.getItem('isAuthenticated'));
+    const user = JSON.parse(localStorage.getItem('user'));
+    setUser(user);
+    console.log(isAuthenticated);
+    
+    if (!isAuthenticated) {
       history.push("/signin");
     }
-  }, [user]);
+  }, []);
   return (
     <>
       <NavBar

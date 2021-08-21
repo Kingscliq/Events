@@ -31,6 +31,6 @@ const logout = () => {
 }
 
 
-export default {
+export {
     register, login, logout
 }

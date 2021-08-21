@@ -9,7 +9,7 @@ import { UploadTemplate } from "./upload-template";
 import { connect } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
 
-const HostEvent = ({ user, loading, isAuthenticated }) => {
+const HostEvent = ({ loading, isAuthenticated }) => {
   const [step, setStep] = useState(1);
 
   // Proceed to next step
@@ -23,12 +23,19 @@ const HostEvent = ({ user, loading, isAuthenticated }) => {
     setStep(step - 1);
     console.log(step);
   };
+  const [user, setUser] = useState("");
   const history = useHistory();
+
   useEffect(() => {
-    if (!isAuthenticated || !user) {
+    const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
+    const user = JSON.parse(localStorage.getItem("user"));
+    setUser(user);
+    console.log(isAuthenticated);
+
+    if (!isAuthenticated) {
       history.push("/signin");
     }
-  }, [isAuthenticated]);
+  }, []);
   const renderSwitch = step => {
     switch (step) {
       case 1:

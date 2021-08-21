@@ -4,60 +4,80 @@
 
 /* Utility Colors */
 :root {
-	--primary: #f17140;
-	--secondary: #da564a;
-	--tertiary: #a65a54;
-	--dark: #0b0d17;
-	--light: #f9f9f9;
-	--grey: #161616;
-	--darkgrey: #21212152;
-	--light-grey: hsla(0, 0%, 100%, 0.5);
-	--lighter-grey: #c4c4c4;
+  --primary: #f17140;
+  --secondary: #da564a;
+  --tertiary: #a65a54;
+  --dark: #0b0d17;
+  --light: #f9f9f9;
+  --grey: #161616;
+  --darkgrey: #21212152;
+  --light-grey: hsla(0, 0%, 100%, 0.5);
+  --lighter-grey: #c4c4c4;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	font-family: "Google Sans", sans-serif;
-	background-color: #ffffff;
+  font-family: "Google Sans", sans-serif;
+  background-color: #ffffff;
 }
 .container {
-	width: 90%;
-	margin: auto;
+  width: 90%;
+  margin: auto;
 }
 
 .text-primary {
-	color: var(--primary);
+  color: var(--primary);
 }
 .text-secondary {
-	color: var(--secondary);
+  color: var(--secondary);
 }
 .text-tertiary {
-	color: var(--tertiary);
+  color: var(--tertiary);
 }
 
 .card {
-	width: 100%;
-	box-shadow: 0 1px 3px rgba (0, 0, 0, 0.12), 0 1px 2px rgba (0, 0, 0, 0.24);
-	height: auto;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba (0, 0, 0, 0.12), 0 1px 2px rgba (0, 0, 0, 0.24);
+  height: auto;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
 }
-button:disabled{
-	cursor: not-allowed;
+
+/* ALERTS STYLES */
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+button:disabled {
+  cursor: not-allowed;
 }
 /* // Form Styles */
 
 .form-header {
-	text-align: center;
+  text-align: center;
 }
 @media screen and (max-width: 464px) {
-	.container {
-		width: 90%;
-	}
+  .container {
+    width: 90%;
+  }
 }
