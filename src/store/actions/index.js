@@ -27,6 +27,7 @@ export const register = data => async dispatch => {
     });
     dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
     setAlert('Registration SuccessFul', 'Redirecting...', 'success');
+
     // dispatch({ type: SHOW_VERIFICATION_NOTICE });
     // dispatch(setAlert('Registration Successful', 'alert-success'));
     // dispatch(setTimeout(clearAlert(), 5000));
@@ -35,7 +36,12 @@ export const register = data => async dispatch => {
     // console.log(err.response.data.errors[0])
     //console.log(msg);
     // dispatch(setAlert('alert-danger'));
-    setAlert('Registration Failed', err.response.data.errors[0], 'danger');
+    console.log(typeof err.response.data.errors[0].email);
+    setAlert(
+      'Registration Failed',
+      err.response.data.errors[0].email,
+      'danger'
+    );
     dispatch({ type: CLEAR_LOADING });
   }
 };
