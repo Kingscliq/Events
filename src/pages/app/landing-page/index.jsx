@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
 	BrowseEvents,
 	CupLady,
@@ -23,7 +23,15 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import "./landing-page.css";
 
 const LandingPage = () => {
-	const history = useHistory();
+	 const [user, setUser] = useState("");
+   	 const history = useHistory();
+
+   useEffect(() => {
+     const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
+     const user = JSON.parse(localStorage.getItem("user"));
+     setUser(user);
+     console.log(isAuthenticated);
+   }, []);
 
 	const linkStyle = {
 		color: "#f17140",

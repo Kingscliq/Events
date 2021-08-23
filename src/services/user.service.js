@@ -16,7 +16,7 @@ const getUser = async () => {
   try {
     const res = await client.get("/users/auth", config);
     return res.data
-  } catch (error) {
+  } catch (err) {
     console.log(err.response);
   }
 };
@@ -30,7 +30,7 @@ const getUserEvents = async (id) => {
   }
 };
 
-export default {
+export {
   getAllEvents,
   getUserEvents,
   getUser,

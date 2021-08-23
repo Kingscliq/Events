@@ -32,10 +32,9 @@ export const register = data => async dispatch => {
     // dispatch(setTimeout(clearAlert(), 5000));
   } catch (err) {
     console.log(err.response);
-    // console.log(err.response.data.errors[0]);
-
+    // console.log(err.response.data.errors[0])
     //console.log(msg);
-    dispatch(setAlert('alert-danger'));
+    // dispatch(setAlert('alert-danger'));
     setAlert('Registration Failed', err.response.data.errors[0], 'danger');
     dispatch({ type: CLEAR_LOADING });
   }
