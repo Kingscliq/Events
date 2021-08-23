@@ -35,7 +35,7 @@ const SignUp = ({ user, loading, isAuthenticated, register }) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (user) history.push("/browse-events");
+    if (user) history.push('/browse-events');
   }, [user]);
   return (
     <>
@@ -211,6 +211,6 @@ const mapStateToProps = state => ({
   user: state.auth.user,
   loading: state.auth.loading,
   showVerificationNotice: state.auth.showVerificationNotice,
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
 });
 export default connect(mapStateToProps, { register })(SignUp);

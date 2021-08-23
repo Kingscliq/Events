@@ -10,7 +10,7 @@ import {
   SET_USER,
   CLEAR_USER,
 } from './types';
-import { setAlert, clearAlert } from './alert';
+import { setAlert } from '../../App';
 
 export const register = data => async dispatch => {
   dispatch({ type: SET_LOADING });
@@ -18,23 +18,30 @@ export const register = data => async dispatch => {
     const res = await client.post('users/register', data);
     console.log('Registration Successful');
     console.log(res.data);
-    localStorage.setItem("token", JSON.stringify(res.data.token));
-    localStorage.setItem("user", JSON.stringify(res.data.message));
-    localStorage.setItem("isAuthenticated", true);
+    localStorage.setItem('token', JSON.stringify(res.data.token));
+    localStorage.setItem('user', JSON.stringify(res.data.message));
+    localStorage.setItem('isAuthenticated', true);
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: JSON.parse(localStorage.getItem("user")),
+      payload: JSON.parse(localStorage.getItem('user')),
     });
-    dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem("user")) });
+    dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
+    setAlert('Registration SuccessFul', 'Redirecting...', 'success');
+
     // dispatch({ type: SHOW_VERIFICATION_NOTICE });
     // dispatch(setAlert('Registration Successful', 'alert-success'));
     // dispatch(setTimeout(clearAlert(), 5000));
   } catch (err) {
     console.log(err.response);
-    // console.log(err.response.data.errors[0]);
-    
+    // console.log(err.response.data.errors[0])
     //console.log(msg);
-    dispatch(setAlert('alert-danger'));
+    // dispatch(setAlert('alert-danger'));
+    console.log(typeof err.response.data.errors[0].email);
+    setAlert(
+      'Registration Failed',
+      err.response.data.errors[0].email,
+      'danger'
+    );
     dispatch({ type: CLEAR_LOADING });
   }
 };
@@ -56,24 +63,17 @@ export const signIn = data => async dispatch => {
         payload: JSON.parse(localStorage.getItem('user')),
       });
       dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
+      setAlert('Authenticated', 'Redirecting...', 'success');
     }
   } catch (error) {
     if (error.response) {
-      // setTimeout(() => dispatch(clearAlert()), 5000);console.log(error.response.data.message);
       const msg = await error.response.data.message;
-      const type = 'alert-danger';
+      const type = 'danger';
       dispatch({ type: LOGIN_FAIL });
-      // dispatch({ type: SET_ALERT, msg, type });
-      dispatch(setAlert(error.response.data.message, 'alert-danger'));
+
       localStorage.clear();
+      setAlert('Login Failed!', msg, 'danger');
     }
-    // } else {
-    //   const msg = 'Login Failed, Check your Internet connection';
-    //   const type = 'alert-danger';
-    //   dispatch(setAlert(msg, type));
-    //   console.log('error due to network connection');
-    //   dispatch({ type: LOGIN_FAIL });
-    // }
   } finally {
     dispatch({ type: CLEAR_LOADING });
   }
