@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { NavBar } from "../../../widgets/nav-bar";
-import { AboutDesign } from "./about-design";
-import { AboutEvent } from "./about-event";
-import { AboutGuests } from "./about-guests";
-import "./host-event.css";
-import { UploadTemplate } from "./upload-template";
-import { connect } from "react-redux";
-import { FaUserAlt } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { NavBar } from '../../../widgets/nav-bar';
+import { AboutDesign } from './about-design';
+import { AboutEvent } from './about-event';
+import { AboutGuests } from './about-guests';
+import './host-event.css';
+import { UploadTemplate } from './upload-template';
+import { connect } from 'react-redux';
+import { FaUserAlt } from 'react-icons/fa';
 
 const HostEvent = ({ loading, isAuthenticated }) => {
   const [step, setStep] = useState(1);
@@ -23,30 +23,48 @@ const HostEvent = ({ loading, isAuthenticated }) => {
     setStep(step - 1);
     console.log(step);
   };
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
   const history = useHistory();
+  const [eventData, setEventData] = useState({});
+
+  const onChange = e => {
+    setEventData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   useEffect(() => {
-    const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
-    const user = JSON.parse(localStorage.getItem("user"));
+    const isAuthenticated = JSON.parse(localStorage.getItem('isAuthenticated'));
+    const user = JSON.parse(localStorage.getItem('user'));
     setUser(user);
     console.log(isAuthenticated);
 
     if (!isAuthenticated) {
-      history.push("/signin");
+      history.push('/signin');
     }
   }, []);
   const renderSwitch = step => {
     switch (step) {
       case 1:
-        return <AboutEvent nextStep={nextStep} />;
+        return <AboutEvent onChange={onChange} nextStep={nextStep} />;
       case 2:
-        return <AboutGuests nextStep={nextStep} prevStep={prevStep} />;
+        return (
+          <AboutGuests
+            onChange={onChange}
+            nextStep={nextStep}
+            prevStep={prevStep}
+          />
+        );
       case 3:
-        return <AboutDesign nextStep={nextStep} prevStep={prevStep} />;
+        return (
+          <AboutDesign
+            nextStep={nextStep}
+            prevStep={prevStep}
+            onChange={onChange}
+          />
+        );
       case 4:
         return (
           <UploadTemplate
+            onChange={onChange}
             nextStep={nextStep}
             prevStep={prevStep}
             handleChange={handleChange}
@@ -54,12 +72,12 @@ const HostEvent = ({ loading, isAuthenticated }) => {
           />
         );
       default:
-        return "stuff";
+        return 'stuff';
     }
   };
 
   const [event, setEvent] = useState({
-    image: "",
+    image: '',
   });
 
   const handleChange = event => {
@@ -78,10 +96,10 @@ const HostEvent = ({ loading, isAuthenticated }) => {
   return (
     <>
       <NavBar
-        firstItem={"Browse an event"}
-        firstLink={"/browse-events"}
-        secondItem={user ? null : "Sign In"}
-        secondLink={user ? null : "/signin"}
+        firstItem={'Browse an event'}
+        firstLink={'/browse-events'}
+        secondItem={user ? null : 'Sign In'}
+        secondLink={user ? null : '/signin'}
         profile={user ? `Welcome, ${user.first_name}` : null}
         profileIcon={<FaUserAlt />}
       />
