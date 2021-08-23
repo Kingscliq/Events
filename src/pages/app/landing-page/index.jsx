@@ -31,10 +31,6 @@ const LandingPage = () => {
      const user = JSON.parse(localStorage.getItem("user"));
      setUser(user);
      console.log(isAuthenticated);
-
-     if (!isAuthenticated) {
-       history.push("/signin");
-     }
    }, []);
 
 	const linkStyle = {

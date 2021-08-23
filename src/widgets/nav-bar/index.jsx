@@ -27,17 +27,12 @@ const NavBar = ({
 	};
 
 	 const [user, setUser] = useState("");
-   const history = useHistory();
 
    useEffect(() => {
      const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
      const user = JSON.parse(localStorage.getItem("user"));
      setUser(user);
      console.log(isAuthenticated);
-
-     if (!isAuthenticated) {
-       history.push("/signin");
-     }
    }, []);
 
 	return (
