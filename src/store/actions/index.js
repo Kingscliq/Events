@@ -36,12 +36,15 @@ export const register = data => async dispatch => {
     // console.log(err.response.data.errors[0])
     //console.log(msg);
     // dispatch(setAlert('alert-danger'));
-    console.log(typeof err.response.data.errors[0].email);
-    setAlert(
-      'Registration Failed',
-      err.response.data.errors[0].email,
-      'danger'
-    );
+    // console.log(typeof err.response.data.errors[0].email);
+    if (err.response) {
+      setAlert(
+        'Registration Failed',
+        err.response.data.errors[0].email,
+        'danger'
+      );
+    }
+  } finally {
     dispatch({ type: CLEAR_LOADING });
   }
 };

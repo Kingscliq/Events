@@ -3,7 +3,7 @@ import { FileIcon, PaintpadIcon } from '../../../../assets/images';
 import { Button } from '../../../../components/button';
 import '../host-event.css';
 
-const AboutDesign = ({ nextStep, prevStep }) => {
+const AboutDesign = ({ nextStep, prevStep, onChange, eventData }) => {
   return (
     <>
       <main className="host-event">
@@ -26,7 +26,14 @@ const AboutDesign = ({ nextStep, prevStep }) => {
                   </span>
                   <div className="form-input">
                     <h2>Do you have an existing media design?</h2>
-                    <input type="text" placeholder="Yes/no" required />
+                    <input
+                      type="text"
+                      placeholder="Yes/no"
+                      required
+                      value={eventData.existingMedia}
+                      onChange={onChange}
+                      name="existingMedia"
+                    />
                   </div>
                 </div>
                 <div className="form-input-div">
@@ -35,7 +42,14 @@ const AboutDesign = ({ nextStep, prevStep }) => {
                   </span>
                   <div className="form-input">
                     <h2>What file type is it?</h2>
-                    <input type="text" placeholder="PNG AI,PSD, SVG" required />
+                    <input
+                      type="text"
+                      placeholder="PNG AI,PSD, SVG"
+                      required
+                      value={eventData.fileType}
+                      onChange={onChange}
+                      name="fileType"
+                    />
                   </div>
                 </div>
               </form>

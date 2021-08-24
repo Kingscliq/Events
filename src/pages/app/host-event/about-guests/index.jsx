@@ -3,7 +3,7 @@ import { PeopleIcon, VideocameraIcon } from '../../../../assets/images';
 import { Button } from '../../../../components/button';
 import '../host-event.css';
 
-const AboutGuests = ({ nextStep, prevStep }) => {
+const AboutGuests = ({ nextStep, prevStep, eventData, onChange }) => {
   return (
     <>
       <main className="host-event">
@@ -30,6 +30,9 @@ const AboutGuests = ({ nextStep, prevStep }) => {
                       type="text"
                       placeholder="Online or Physical"
                       required
+                      value={eventData.location}
+                      onChange={onChange}
+                      name="location"
                     />
                   </div>
                 </div>
@@ -43,6 +46,9 @@ const AboutGuests = ({ nextStep, prevStep }) => {
                       type="text"
                       placeholder="Below or above 20"
                       required
+                      value={eventData.audience}
+                      onChange={onChange}
+                      name="audience"
                     />
                   </div>
                 </div>

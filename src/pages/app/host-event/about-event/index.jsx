@@ -3,7 +3,8 @@ import { CalendarIcon, ClockIcon } from '../../../../assets/images';
 import { Button } from '../../../../components/button';
 import '../host-event.css';
 
-const AboutEvent = ({ nextStep }) => {
+const AboutEvent = ({ nextStep, eventData, onChange }) => {
+  console.log(eventData);
   return (
     <>
       <main className="host-event">
@@ -27,7 +28,14 @@ const AboutEvent = ({ nextStep }) => {
                   </span>
                   <div className="form-input">
                     <h2>What type of event are you hosting?</h2>
-                    <input type="text" placeholder="Event type" required />
+                    <input
+                      type="text"
+                      placeholder="Event type"
+                      required
+                      value={eventData.eventType}
+                      onChange={onChange}
+                      name="eventType"
+                    />
                   </div>
                 </div>
                 <div className="form-input-div">
@@ -40,6 +48,9 @@ const AboutEvent = ({ nextStep }) => {
                       type="text"
                       placeholder="Monthly, yearly?"
                       required
+                      value={eventData.eventDuration}
+                      onChange={onChange}
+                      name="eventDuration"
                     />
                   </div>
                 </div>
