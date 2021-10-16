@@ -1,7 +1,7 @@
-import React from "react";
-import { FooterLogo } from "../../assets/images";
-import "./footer.css";
-import { FootLink } from "../../components/applink";
+import React from 'react';
+import { FooterLogo } from '../../assets/images';
+import './footer.css';
+import { FootLink } from '../../components/applink';
 
 const Footer = () => {
   return (
@@ -13,13 +13,13 @@ const Footer = () => {
             <span className="footer-logo">
               <img src={FooterLogo} alt="logo" />
             </span>
-            <span>&copy; Kesh Union Boys 2021 All Rights Reserved</span>
+            <span>&copy; Events 2021 All Rights Reserved</span>
           </div>
           <div className="footer-grid">
             <ul className="footer-list">
               <h3> Product </h3>
               <li>
-                <FootLink>Overview</FootLink>{" "}
+                <FootLink>Overview</FootLink>{' '}
               </li>
               <li>
                 <FootLink>Features</FootLink>
@@ -37,30 +37,30 @@ const Footer = () => {
                 <FootLink> About </FootLink>
               </li>
               <li>
-                {" "}
+                {' '}
                 <FootLink>Contact</FootLink>
               </li>
               <li>
-                <FootLink> Partners</FootLink>{" "}
+                <FootLink> Partners</FootLink>{' '}
               </li>
               <li>
-                {" "}
+                {' '}
                 <FootLink>Careers </FootLink>
               </li>
             </ul>
             <ul className="footer-list">
               <h3> Support </h3>
               <li>
-                <FootLink> Help</FootLink>{" "}
+                <FootLink> Help</FootLink>{' '}
               </li>
               <li>
-                <FootLink> Privacy Policy</FootLink>{" "}
+                <FootLink> Privacy Policy</FootLink>{' '}
               </li>
               <li>
                 <FootLink> Legal </FootLink>
               </li>
               <li>
-                <FootLink> Status</FootLink>{" "}
+                <FootLink> Status</FootLink>{' '}
               </li>
             </ul>
             <ul className="footer-list">
