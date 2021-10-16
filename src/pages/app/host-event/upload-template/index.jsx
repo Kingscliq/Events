@@ -2,16 +2,12 @@ import React from 'react';
 import { BackButtonIcon, UploadImageIcon } from '../../../../assets/images';
 import { Button } from '../../../../components/button';
 
+import { blankProfile } from '../../../../assets/images';
+
 import '../host-event.css';
 import './upload-template.css';
 
-const UploadTemplate = ({
-  prevStep,
-  nextStep,
-  handleChange,
-  event,
-  eventData,
-}) => {
+const UploadTemplate = ({ prevStep, nextStep, handleChange, event }) => {
   return (
     <>
       <main className="host-event">
@@ -27,17 +23,21 @@ const UploadTemplate = ({
                   <div className="upload-template-image">
                     <img
                       src={
-                        event.image ? URL.createObjectURL(event.image) : null
+                        event.image
+                          ? URL.createObjectURL(event.image)
+                          : blankProfile
                       }
-                      alt={event.image ? event.image.name : null}
+                      alt={
+                        event.image ? event.image.name : 'Blank Profile Image'
+                      }
                     />
                   </div>
                   <div className="upload-template-instruction">
                     <span>Drag and drop images files here</span>
                     <p>Or</p>
                     <div>
-                      <img src={UploadImageIcon} alt="upload-img icon" />
-                      <span>Choose image fille</span>
+                      <img src={UploadImageIcon} alt="upload-img icon" />{' '}
+                      <span>Choose image file</span>
                     </div>
                   </div>
 
@@ -51,11 +51,7 @@ const UploadTemplate = ({
                 </div>
               </div>
               <div className="upload-template-btn">
-                <Button
-                  className="btn btn-primary"
-                  type="submit"
-                  text={'Submit Evevnt Details'}
-                />
+                <Button className="btn btn-primary" text={'Upload Image'} />
               </div>
             </form>
           </div>

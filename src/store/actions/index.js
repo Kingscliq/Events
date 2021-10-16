@@ -1,14 +1,11 @@
 import client from '../../api/api-client';
 import {
   REGISTER_SUCCESS,
-  SET_ALERT,
   SET_LOADING,
-  SHOW_VERIFICATION_NOTICE,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   CLEAR_LOADING,
   SET_USER,
-  CLEAR_USER,
 } from './types';
 import { setAlert } from '../../App';
 
@@ -27,16 +24,8 @@ export const register = data => async dispatch => {
     });
     dispatch({ SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
     setAlert('Registration SuccessFul', 'Redirecting...', 'success');
-
-    // dispatch({ type: SHOW_VERIFICATION_NOTICE });
-    // dispatch(setAlert('Registration Successful', 'alert-success'));
-    // dispatch(setTimeout(clearAlert(), 5000));
   } catch (err) {
     console.log(err.response);
-    // console.log(err.response.data.errors[0])
-    //console.log(msg);
-    // dispatch(setAlert('alert-danger'));
-    // console.log(typeof err.response.data.errors[0].email);
     if (err.response) {
       setAlert(
         'Registration Failed',
@@ -81,10 +70,3 @@ export const signIn = data => async dispatch => {
     dispatch({ type: CLEAR_LOADING });
   }
 };
-
-// ============================= SIGN OUT FUNCTION =====================
-// export const signOut = () => {
-//   return {
-//     type: SIGN_OUT,
-//   };
-// };

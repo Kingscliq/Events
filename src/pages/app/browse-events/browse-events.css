@@ -25,12 +25,15 @@
 .browse-hero-img img {
   width: 100%;
 }
-
 .events-list {
   display: flex;
   flex-wrap: wrap;
   padding: 0 4px;
   gap: 30px;
+}
+
+.events-list img {
+  width: 100%;
 }
 .event-card-placeholder {
   flex: 30%;
@@ -48,13 +51,13 @@
 .arrow-icon {
   font-size: 20px;
 }
-
 .preview-container {
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .preview-image {
   padding: 20px 40px;
@@ -119,3 +122,70 @@
     margin: 20px auto;
   }
 }
+
+/* Event PReview Styles */
+.dp-upload-btn-div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 190px;
+  margin-left: 210px;
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: blue; */
+  border-radius: 100%;
+}
+
+.dp-upload-btn {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: grey;
+  /* top: 0; */
+  opacity: 0;
+  z-index: 10000;
+  position: absolute;
+}
+.dp-img-main {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  /* background-color: red; */
+  border-radius: 100%;
+}
+.dp-img {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  /* background-color: black; */
+}
+.dp-img-main img {
+  /* width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover; */
+
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.download-btn {
+  width: 300px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+/*  Correction */
+/* the image needs to be adjusted looks shrinked :( */

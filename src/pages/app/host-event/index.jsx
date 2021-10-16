@@ -8,7 +8,6 @@ import './host-event.css';
 import { UploadTemplate } from './upload-template';
 import { connect } from 'react-redux';
 import { FaUserAlt } from 'react-icons/fa';
-import { createEvent } from '@testing-library/react';
 
 const HostEvent = ({ loading, isAuthenticated }) => {
   const [step, setStep] = useState(1);
@@ -99,18 +98,16 @@ const HostEvent = ({ loading, isAuthenticated }) => {
     image: '',
   });
 
-  const handleChange = e => {
-    if (e.target.files) {
-      let currentImg = e.target.name;
-      setEvent({ ...event, [currentImg]: e.target.files[0] });
-      console.log(event);
-      setEventData(prev => ({ ...prev, file: e.target.files[0] }));
-      console.log(eventData);
+  const handleChange = event => {
+    if (event.target.files) {
+      let currentImg = event.target.name;
+      setEvent({ ...event, [currentImg]: event.target.files[0] });
+      // console.log(event);
     } else {
-      let currentInput = e.target.name;
-      setEvent({ ...event, [currentInput]: e.target.value });
+      let currentInput = event.target.name;
+      setEvent({ ...event, [currentInput]: event.target.value });
       // setPassword({ ...password, [currentInput]: event.target.value });
-      console.log(event);
+      // console.log(event);
     }
   };
 
