@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { NavBar } from "../../../widgets/nav-bar";
-import { AboutDesign } from "./about-design";
-import { AboutEvent } from "./about-event";
-import { AboutGuests } from "./about-guests";
-import "./host-event.css";
-import { UploadTemplate } from "./upload-template";
-import { connect } from "react-redux";
-import { FaUserAlt } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { NavBar } from '../../../widgets/nav-bar';
+import { AboutDesign } from './about-design';
+import { AboutEvent } from './about-event';
+import { AboutGuests } from './about-guests';
+import './host-event.css';
+import { UploadTemplate } from './upload-template';
+import { connect } from 'react-redux';
+import { FaUserAlt } from 'react-icons/fa';
 
 const HostEvent = ({ loading, isAuthenticated }) => {
   const [step, setStep] = useState(1);
@@ -23,17 +23,17 @@ const HostEvent = ({ loading, isAuthenticated }) => {
     setStep(step - 1);
     console.log(step);
   };
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('');
   const history = useHistory();
 
   useEffect(() => {
-    const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
-    const user = JSON.parse(localStorage.getItem("user"));
+    const isAuthenticated = JSON.parse(localStorage.getItem('isAuthenticated'));
+    const user = JSON.parse(localStorage.getItem('user'));
     setUser(user);
     console.log(isAuthenticated);
 
     if (!isAuthenticated) {
-      history.push("/signin");
+      history.push('/signin');
     }
   }, []);
   const renderSwitch = step => {
@@ -54,34 +54,34 @@ const HostEvent = ({ loading, isAuthenticated }) => {
           />
         );
       default:
-        return "stuff";
+        return 'stuff';
     }
   };
 
   const [event, setEvent] = useState({
-    image: "",
+    image: '',
   });
 
   const handleChange = event => {
     if (event.target.files) {
       let currentImg = event.target.name;
       setEvent({ ...event, [currentImg]: event.target.files[0] });
-      console.log(event);
+      // console.log(event);
     } else {
       let currentInput = event.target.name;
       setEvent({ ...event, [currentInput]: event.target.value });
       // setPassword({ ...password, [currentInput]: event.target.value });
-      console.log(event);
+      // console.log(event);
     }
   };
 
   return (
     <>
       <NavBar
-        firstItem={"Browse an event"}
-        firstLink={"/browse-events"}
-        secondItem={user ? null : "Sign In"}
-        secondLink={user ? null : "/signin"}
+        firstItem={'Browse an event'}
+        firstLink={'/browse-events'}
+        secondItem={user ? null : 'Sign In'}
+        secondLink={user ? null : '/signin'}
         profile={user ? `Welcome, ${user.first_name}` : null}
         profileIcon={<FaUserAlt />}
       />
